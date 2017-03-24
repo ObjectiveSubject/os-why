@@ -1,0 +1,9 @@
+@function rem($val) {
+    @return #{ $val / 16 }rem;
+}
+
+@mixin media($size, $minmax: min, $media:all) {
+    @media #{$media} and ( #{$minmax}-width: rem($size) ) {
+        @content;
+    }
+}

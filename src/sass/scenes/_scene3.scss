@@ -1,0 +1,39 @@
+#scene-3 {
+    height: 150vh;
+    overflow: hidden;
+    padding-bottom: 50vh;
+
+    .grid-container {
+        display: flex;
+        justify-content: space-between;
+        height: 150vh;
+    }
+}
+
+.scene-3__image {
+    position: absolute;
+    z-index: 0;
+    top: 30%;
+    right: 10%;
+    opacity: 0.5
+}
+
+.scene-3__list,
+.scene-3__copy {
+    position: relative;
+    z-index: 1;
+    flex-basis: rem(370);
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.scene-3__list {
+    align-self: flex-start;
+    margin-top: 5rem;
+}
+
+.scene-3__copy {
+    align-self: flex-end;
+    margin-top: 5rem;
+}

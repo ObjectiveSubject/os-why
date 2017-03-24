@@ -1,0 +1,74 @@
+// * {
+//     outline: 1px dotted rgba(magenta, 0.5);
+// }
+// .scene {
+//     outline:1px dotted rgba(limegreen, 0.3);
+// }
+
+body {
+    background-color: $dark-blue;
+    color: white;
+}
+
+img {
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+}
+
+.grid-container {
+    position: relative;
+    max-width: rem($max-width);
+    margin: auto;
+    padding: 0 rem($container-padding);
+    &:before {
+        content: "";
+        display: table;
+    }
+    @include grid-container;
+}
+
+.button {
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: white;
+    background-color: $red;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    transition: padding $timing $easing, box-shadow $timing $easing;
+    outline: 0;
+    &:hover {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    &:focus {
+        box-shadow: 0 0 30px 2px $red;
+    }
+}
+
+.site-title {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: $container-padding;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 128px;
+    height: 56px;
+    background-image: url(../../static/logo@2x.png);
+    background-size: 100% auto;
+    background-position: 0 -56px;
+}

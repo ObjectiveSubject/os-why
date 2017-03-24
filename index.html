@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Objective Subject — Why</title>
+        <link href="./build/css/app.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <main id="app" class="loading">
+
+            <header class="site-header grid-container">
+                <div class="site-title h1">Objective Subject</div>
+            </header>
+
+            <!-- Scene 1 -->
+
+            <section id="scene-1" class="scene-1 scene">
+                <div class="scene-1__content scene-content">
+                    <div class="grid-container">
+                        <h1 class="scene-1__copy scene-copy">in the 2016 u.s. election only 55% of people voted.</h1>
+                        <button class="scene-1__button button" onClick={this.clickWhy}>why?</button>
+                    </div>
+                </div>
+                <div class="scene-1__rule scene-rule"></div>
+            </section>
+
+            <!-- Scene 2 -->
+
+            <section id="scene-2" class="scene-2 scene">
+                <div class="scene-2__content scene-content">
+                    <div class="grid-container">
+                        <h2 class="scene-2__copy scene-copy">
+                            we want to explore the disconnection people feel in our society through a series of collaborative projects over the next year.
+                            <br/><br/>
+                            these projects will tackle the relationship people have with their government.
+                        </h2>
+                    </div>
+                </div>
+                <img src="build/img/1-Exploration-Spot.png" 
+                     width="600" height="180" 
+                     srcSet="build/img/1-Exploration-Spot.png 1x, build/img/1-Exploration-Spot@2x.png 2x" 
+                     alt="Exploration Spot"
+                     class="scene-2__image scene-image"/>
+                <div class="scene-2__rule scene-rule"></div>
+            </section>
+
+            <!-- Scene 3 -->
+
+            <section id="scene-3" class="scene-3 scene">
+                <div class="scene-3__content scene-content">
+                    <div class="grid-container">
+                        <ul class="scene-3__list scene-list">
+                            <li><span class="highlight-red">&nbsp;the voting system&nbsp;</span></li>
+                            <li>registration</li>
+                            <li>disenfranchisement</li>
+                            <li>ballot design</li>
+                        </ul>
+                        <h2 class="scene-3__copy scene-copy">
+                            voters in the u.s. need to get through a complicated, confusing and passive registration system, abide by voting rules that vary county by county and can be prone to political interference, face ballot papers which overwhelm and obfuscate, deal with machines that have a dubious history of reliability and all too o en must wait in line for hours simply to exercise the right to vote.
+                        </h2>
+                    </div>
+                </div>
+                <img src="build/img/2-Voting-System-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/2-Voting-System-Spot.png 1x, build/img/2-Voting-System-Spot@2x.png 2x" 
+                     alt="Voting System Spot"
+                     class="scene-3__image scene-image"/>
+                <div class="scene-3__rule scene-rule"></div>
+            </section>
+
+        </main>
+
+        <!--<script src="./bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>-->
+        <script src="./bower_components/gsap/src/minified/TweenMax.min.js" type="text/javascript"></script>
+
+        <script src="./bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js" type="text/javascript"></script>
+        <script src="./bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js" type="text/javascript"></script>
+        <script src="./bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js" type="text/javascript"></script>
+        <!--<script src="./bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js" type="text/javascript"></script>
+        <script src="./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js" type="text/javascript"></script>
+        <script src="./bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js" type="text/javascript"></script>-->
+        <script src="./build/js/app.js" type="text/javascript"></script>
+    </body>
+</html>
