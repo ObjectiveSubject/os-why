@@ -1,11 +1,43 @@
 .scene {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgba($dark-blue, 1);
+    
+    // TODO: FOR DEV ONLY
+    outline: 1px dashed rgba(lime, 0.3);
+    margin-bottom: 5px;
 }
 
+.scene .grid-container.is-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.is-flex {
+    .flex-child {
+        position: relative;
+        z-index: 1;
+        flex-basis: rem(370);
+        width: auto;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    .is-top {
+        align-self: flex-start
+    }
+    .is-bottom {
+        align-self: flex-end;
+    }
+    .is-left {
+        order: 0;
+    }
+    .is-right: {
+        order: 1;
+    }
+} 
+
 .scene-copy {
-    @extend .h1;
+    @extend .clearfix;
     max-width: rem(370);
 }
 
@@ -16,6 +48,10 @@
     left: 0;
     height: 2px;
     background-color: $red;
+    &.draws-rtl {
+        left: auto;
+        right: 0;
+    }
 }
 
 .scene-list {

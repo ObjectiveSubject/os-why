@@ -19,7 +19,9 @@
             <section id="scene-1" class="scene-1 scene">
                 <div class="scene-1__content scene-content">
                     <div class="grid-container">
-                        <h1 class="scene-1__copy scene-copy">in the 2016 u.s. election only 55% of people voted.</h1>
+                        <div class="scene-1__copy scene-copy">
+                            <h1>in the 2016 u.s. election only 55% of people voted.</h1>
+                        </div>
                         <button class="scene-1__button button" onClick={this.clickWhy}>why?</button>
                     </div>
                 </div>
@@ -29,37 +31,45 @@
             <!-- Scene 2 -->
 
             <section id="scene-2" class="scene-2 scene">
-                <div class="scene-2__content scene-content">
-                    <div class="grid-container">
-                        <h2 class="scene-2__copy scene-copy">
-                            we want to explore the disconnection people feel in our society through a series of collaborative projects over the next year.
-                            <br/><br/>
-                            these projects will tackle the relationship people have with their government.
-                        </h2>
+                <div class="scene-2__background scene-background">
+                    <div class="scene-2__content scene-content">
+                        <div class="grid-container">
+                            <div class="scene-2__copy scene-copy">
+                                <h2 class="h1">
+                                    we want to explore the disconnection people feel in our society through a series of collaborative projects over the next year.
+                                    <br/><br/>
+                                    these projects will tackle the relationship people have with their government.
+                                </h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="build/img/1-Exploration-Spot.png" 
-                     width="600" height="180" 
-                     srcSet="build/img/1-Exploration-Spot.png 1x, build/img/1-Exploration-Spot@2x.png 2x" 
-                     alt="Exploration Spot"
-                     class="scene-2__image scene-image"/>
-                <div class="scene-2__rule scene-rule"></div>
+                <div class="scene-2__foreground scene-foreground">
+                    <img src="build/img/1-Exploration-Spot.png"
+                         width="600" height="180" 
+                         srcSet="build/img/1-Exploration-Spot.png 1x, build/img/1-Exploration-Spot@2x.png 2x" 
+                         alt="Exploration Spot"
+                         class="scene-2__image scene-image"/>
+                    <div class="scene-2__rule scene-rule draws-rtl"></div>
+                </div>
             </section>
 
             <!-- Scene 3 -->
 
             <section id="scene-3" class="scene-3 scene">
                 <div class="scene-3__content scene-content">
-                    <div class="grid-container">
-                        <ul class="scene-3__list scene-list">
-                            <li><span class="highlight-red">&nbsp;the voting system&nbsp;</span></li>
-                            <li>registration</li>
-                            <li>disenfranchisement</li>
-                            <li>ballot design</li>
+                    <div class="grid-container is-flex">
+                        <ul class="scene-3__list scene-list flex-child is-top is-left">
+                            <li><span class="highlight-red">the voting system</span></li>
+                            <li class="reveal">registration</li>
+                            <li class="reveal">disenfranchisement</li>
+                            <li class="reveal">ballot design</li>
                         </ul>
-                        <h2 class="scene-3__copy scene-copy">
-                            voters in the u.s. need to get through a complicated, confusing and passive registration system, abide by voting rules that vary county by county and can be prone to political interference, face ballot papers which overwhelm and obfuscate, deal with machines that have a dubious history of reliability and all too o en must wait in line for hours simply to exercise the right to vote.
-                        </h2>
+                        <div class="scene-3__copy scene-copy flex-child is-bottom is-right">
+                            <h2 class="h1">
+                                voters in the u.s. need to get through a complicated, confusing and passive registration system, abide by voting rules that vary county by county and can be prone to political interference, face ballot papers which overwhelm and obfuscate, deal with machines that have a dubious history of reliability and all too often must wait in line for hours simply to exercise the right to vote.
+                            </h2>
+                        </div>
                     </div>
                 </div>
                 <img src="build/img/2-Voting-System-Spot.png" 
@@ -68,6 +78,148 @@
                      alt="Voting System Spot"
                      class="scene-3__image scene-image"/>
                 <div class="scene-3__rule scene-rule"></div>
+            </section>
+
+            <!-- Scene 4 -->
+
+            <section id="scene-4" class="scene-4 scene">
+                <img src="build/img/3-Electoral-System-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/3-Electoral-System-Spot.png 1x, build/img/3-Electoral-System-Spot@2x.png 2x" 
+                     alt="Electoral System Spot"
+                     class="scene-4__image scene-image"/>
+                <div class="scene-4__content scene-content">
+                    <div class="grid-container is-flex">
+                        <ul class="scene-4__list scene-list flex-child is-top is-right">
+                            <li><span class="highlight-red">the electoral system</span></li>
+                            <li>gerrymandering</li>
+                            <li>the electoral college system</li>
+                            <li>marginal vs non-marginal states</li>
+                        </ul>
+                        <div class="scene-4__copy scene-copy flex-child is-bottom is-left">
+                            <h2 class="h1">
+                                from ‘politicians choosing their voters’ by dictating where electoral boundaries lie, to a representative system dating from an agrarian era which favors rural over urban areas (where 80.7% of the country lives*), our electoral system provides some people with outsized political power and others with very little.
+                                <br/><br/>
+                                consequently, ‘one person, one vote’ doesn’t mean an equal consequence per vote. our important institutions are facing a growing democratic de cit.
+                            </h2>
+                            <p>*source: u.s. census bureau</p>
+                        </div>
+                    </div>
+                </div> 
+                <!--<div class="scene-4__rule scene-rule draws-rtl"></div>-->
+            </section>
+
+            <!-- Scene 5 -->
+
+            <section id="scene-5" class="scene-5 scene">
+                <div class="scene-5__content scene-content">
+                    <div class="grid-container">
+                        <ul class="scene-5__list scene-list">
+                            <li><span class="highlight-red">politics</span></li>
+                            <li>campaign  finance</li>
+                            <li>personality &amp; campaign style</li>
+                            <li>accountability</li>
+                            <li>the election season</li>
+                        </ul>
+                        <div class="scene-5__copy scene-copy">
+                            <h2 class="h1">
+                                an expensive, protracted election season in ames the passions of a few but turns o  many in the electorate. the soundbite-driven, policy-light, ‘horse-race’ media coverage and agenda-setting reduces the debate to personality, style and very little substance.
+                                <br/><br/>
+                                meanwhile, big money o en dictates the political agenda, which, coupled with the lack of accountability over many years for what candidates say during campaigns, has eroded the public’s trust
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <img src="build/img/4-Politics-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/4-Politics-Spot.png 1x, build/img/4-Politics-Spot@2x.png 2x" 
+                     alt="Politics Spot"
+                     class="scene-5__image scene-image"/>
+                <!--<div class="scene-5__rule scene-rule"></div>-->
+            </section>
+
+            <!-- Scene 6 -->
+
+            <section id="scene-6" class="scene-6 scene">
+                <div class="scene-6__content scene-content">
+                    <div class="grid-container">
+                        <ul class="scene-6__list scene-list">
+                            <li><span class="highlight-red">information</span></li>
+                            <li>partisan media</li>
+                            <li>media cycles</li>
+                            <li>facts</li>
+                            <li>over-information</li>
+                            <li>government communication</li>
+                        </ul>
+                        <div class="scene-6__copy scene-copy">
+                            <h2 class="h1">
+                                the u.s. electorate is physically isolated in economically and racially segregated neighborhoods, as well as immersed in their own media bubbles, subject to inaccurate or biased ‘click-bait’ which plays on basic instincts and reinforces existing bias. this makes it di cult to engage in a common reality to tackle real problems.
+                                <br/><br/>
+                                24-hour news and twitter- length over-simpli cation of issues  lls the vacuum le  by governments failing to provide neutral facts and explain their role in people’s lives.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <img src="build/img/5-Information-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/5-Information-Spot.png 1x, build/img/5-Information-Spot@2x.png 2x" 
+                     alt="Information Spot"
+                     class="scene-6__image scene-image"/>
+                <!--<div class="scene-6__rule scene-rule draws-rtl"></div>-->
+            </section>
+
+            <!-- Scene 7 -->
+
+            <section id="scene-7" class="scene-7 scene">
+                <div class="scene-7__content scene-content">
+                    <div class="grid-container">
+                        <ul class="scene-7__list scene-list">
+                            <li><span class="highlight-red">understanding</span></li>        
+                            <li>how government works</li>
+                            <li>what government is doing for you</li>
+                            <li>how to affect decisions</li>
+                        </ul>
+                        <div class="scene-7__copy scene-copy">
+                            <h2 class="h1">
+                                with comprehensible information lacking, the complex web of government institutions at both federal, state and local levels is misunderstood by citizens. on a daily basis, interacting with government services is hard, as they are designed for system performance and not public/user needs. furthermore, governments do a poor job of explaining their actions, as well as the positive value of the services they continue to provide.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <img src="build/img/6-Understanding-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/6-Understanding-Spot.png 1x, build/img/6-Understanding-Spot@2x.png 2x" 
+                     alt="Understanding Spot"
+                     class="scene-7__image scene-image"/>
+                <!--<div class="scene-7__rule scene-rule"></div>-->
+            </section>
+
+            <!-- Scene 7 -->
+
+            <section id="scene-8" class="scene-8 scene">
+                <div class="scene-8__content scene-content">
+                    <div class="grid-container">
+                        <ul class="scene-8__list scene-list">
+                            <li><span class="highlight-red">participatory deficit</span></li>
+                            <li>connection with representation</li>
+                            <li>ongoing engagement with o cials</li>
+                            <li>grassroots organizing</li>
+                        </ul>
+                        <div class="scene-8__copy scene-copy">
+                            <h2 class="h1">
+                                understanding one’s ability to impact on government decisions beyond the act of voting is o en understood only by those with time or training, and yet the gap between decision-making and the public explains so much disa ection in society.
+                                <br/><br/>
+                                people should be more engaged with their community, and their country, beyond the ballot box. citizens need to hold their elected o cials accountable through e ective direct communication, or through grassroots organizations aiming to effect change.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <img src="build/img/7-Participation-Spot.png" 
+                     width="600" height="900" 
+                     srcSet="build/img/7-Participation-Spot.png 1x, build/img/7-Participation-Spot@2x.png 2x" 
+                     alt="Participation Spot"
+                     class="scene-8__image scene-image"/>
+                <!--<div class="scene-8__rule scene-rule draws-rtl"></div>-->
             </section>
 
         </main>
