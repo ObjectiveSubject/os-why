@@ -1,0 +1,27 @@
+#scene-6 {
+    padding-bottom: 30vh;
+}
+
+.scene-6__images {
+    position: absolute;
+    z-index: 0;
+    top: 25rem;
+    left: 0;
+    width: 100%;
+
+    .woman {
+        position:absolute;
+        right: 40%;
+        margin-right: -189px; // 378 ÷ 2;
+    }
+    .man {
+        position:absolute;
+        left: 40%;
+        margin-left: -183px; // 366 ÷ 2
+    }
+}
+
+.scene-6__copy {
+    margin-top: rem(1000);
+    float: right;
+}

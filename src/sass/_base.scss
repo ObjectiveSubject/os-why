@@ -6,8 +6,9 @@
 // }
 
 body {
-    background-color: $dark-blue;
-    color: white;
+    // background-color: $dark-blue;
+    // color: white;
+    text-transform: lowercase;
 }
 
 img {
@@ -60,10 +61,6 @@ li {
 }
 
 .site-title {
-    position: absolute;
-    z-index: 1;
-    top: 50px;
-    left: $container-padding;
     text-indent: -9999px;
     overflow: hidden;
     width: 128px;
@@ -71,4 +68,13 @@ li {
     background-image: url(../../static/logo@2x.png);
     background-size: 100% auto;
     background-position: 0 -56px;
+
+    .site-header & {
+        position: absolute;
+        z-index: 1;
+    }
+
+    .scene-9 & {
+        margin-left: rem(-11);
+    }
 }

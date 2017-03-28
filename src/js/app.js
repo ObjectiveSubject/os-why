@@ -13,10 +13,85 @@
 
     const scenes = {
 
+        /* SCENE LISTS ----------------------------------------------------- */
+
+        sceneLists: () => {
+
+            let sceneLists = document.querySelectorAll('.scene-list');
+
+            sceneLists.forEach( (list) => {
+
+                let listItems = list.querySelectorAll('.reveal'),
+                    revealList = TweenMax.staggerFromTo( listItems, 
+                                    0.75, 
+                                    { opacity: 0, transform: "translateY(50px)"}, 
+                                    { opacity: 1, transform: "translateY(0)", 
+                                    ease: Back.easeOut}, 
+                                    0.1
+                                 );
+
+                let scene = new ScrollMagic.Scene({
+                        triggerElement: list,
+                    })
+                    .setTween(revealList)
+                    .addTo(scrollMagicController);
+
+                let duration = 930;
+
+                if ( list.className.indexOf('scene-7') > -1 ) {
+                    duration = 830;
+                    console.log(list.className);                    
+                }
+                
+                let stickyList = new ScrollMagic.Scene({
+                    triggerElement: list,
+                    offset: -80,
+                    duration: duration,
+                    triggerHook: 'onLeave'
+                })
+                .setPin(list)
+                .addTo(scrollMagicController);
+                    
+            } );
+
+        },
+
+        drawLines: () => {
+
+            let allScenes = document.querySelectorAll('.scene'); 
+
+            allScenes.forEach( (sceneObj) => {
+
+                let rule = sceneObj.querySelector('.scene-rule');
+                let drawRule = TweenMax.fromTo( rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone } );
+                let sceneOptions = {
+                        triggerElement: sceneObj,
+                        duration: '50%',
+                        triggerHook: "onEnter"
+                    };
+
+                if ( sceneObj.className.indexOf('scene-1') > -1 ) {
+                    sceneOptions.offset = ( window.outerHeight / 2 );
+                    sceneOptions.triggerHook = "onCenter";
+                }
+                if ( sceneObj.className.indexOf('scene-2') > -1 ) {
+                    sceneOptions.triggerHook = "onLeave";
+                }
+
+                let scene = new ScrollMagic.Scene( sceneOptions )
+                    .setTween(drawRule)
+                    .addTo(scrollMagicController);
+
+            } );
+
+        },
+
+        /* HEADER SCENE ----------------------------------------------------- */
+
         headerScene: () => {
 
-            let pulseTitle = TweenMax.fromTo( '.site-title', 1, { opacity: 0.3, transform: 'translateY(40vh)' }, { opacity: 1, transform: 'translateY(40vh)', yoyo: true, repeat: 2, onComplete: () => {
-                    TweenMax.fromTo( '.site-title', 1, { transform: 'translateY(40vh)' }, { transform: 'translateY(0)', ease: 'Quad.easeInOut' } );
+            let pulseTitle = TweenMax.fromTo( '.site-header .site-title', 1, { opacity: 0.3, transform: 'translateY(40vh)' }, { opacity: 1, transform: 'translateY(40vh)', yoyo: true, repeat: 2, onComplete: () => {
+                    TweenMax.fromTo( '.site-header .site-title', 1, { transform: 'translateY(40vh)' }, { transform: 'translateY(0)', ease: 'Quad.easeInOut' } );
                 } } ), 
                 slideInCopy = TweenMax.fromTo( '.scene-1__copy', 1, { transform: 'translateY(100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, delay: 3, ease: 'Quad.easeInOut', onComplete: () => {
                     let app = document.getElementById('app');
@@ -29,23 +104,12 @@
 
         scene1: () => {        
 
-            let timeline = new TimelineMax(),
-                drawLine = TweenMax.fromTo( '.scene-1__rule', 1, { width: '0' }, { width: '100%' } ),
-                showButton = TweenMax.fromTo( '.scene-1__button', 1, { opacity: 0 }, { opacity: 1 } );
-
-            timeline
-                .add(drawLine)
-                .add(showButton);
-
-            // Create the Scene and trigger when visible with ScrollMagic
-            let scene = new ScrollMagic.Scene({
-                    triggerElement: '#scene-1',
-                    offset: (window.outerHeight / 2),
-                    duration: '50%',
-                    // triggerHook: "onLeave"
+            let showButton = TweenMax.fromTo( '.scene-1__button', 0.5, { opacity: 0 }, { opacity: 1 } );
+            
+            let scene2 = new ScrollMagic.Scene({
+                    triggerElement: '.scene-1__button',
                 })
-                .setTween(timeline)
-                // .addIndicators()
+                .setTween(showButton)
                 .addTo(scrollMagicController);
 
         },
@@ -54,50 +118,29 @@
 
         scene2: () => {
 
-            let timeline = new TimelineMax(),
-                drawLine = TweenMax.fromTo( '.scene-2__rule', 1, { width: '0' }, { width: '100%' } ),
-                showimage = TweenMax.fromTo( '.scene-2__image', 1, { opacity: 0 }, { opacity: 1 } );
-
-            timeline
-                .add(drawLine)
-                .add(showimage);
+            let showimage = TweenMax.fromTo( '.scene-2__image', 1, { opacity: 0 }, { opacity: 1, ease: Linear.easeNone } );
 
             let scene = new ScrollMagic.Scene({
                     triggerElement: '#scene-2',
-                    // offset: '-100px',
                     duration: '50%',
                     triggerHook: "onLeave"
                 })
-                .setTween(timeline)
-                // .addIndicators({name:'graphics'})
+                .setTween(showimage)
                 .addTo(scrollMagicController);
 
              let scene2 = new ScrollMagic.Scene({
                     triggerElement: '#scene-2',
-                    // offset: '-100px',
                     duration: '200%',
                     triggerHook: "onLeave"
                 })
                 .setPin('.scene-2__background')
-                // .addIndicators({name:'background'})
                 .addTo(scrollMagicController);
-        
+
         },
 
         /* SCENE 3 ----------------------------------------------------------- */
 
         scene3: () => {
-
-            let drawLine = TweenMax.fromTo( '.scene-3__rule', 1, { width: '0' }, { width: '100%' } )
-
-            let scene = new ScrollMagic.Scene({
-                    triggerElement: '#scene-3',
-                    duration: '50%',
-                    triggerHook: "onEnter"
-                })
-                .setTween(drawLine)
-                // .addIndicators()
-                .addTo(scrollMagicController);
 
             let scene2 = new ScrollMagic.Scene({
                     triggerElement: '#scene-3',
@@ -106,16 +149,6 @@
                     duration: "200%"
                 })
                 .setTween('#scene-3 img', { y: '-50%', ease: Linear.easeNone })
-                // .addIndicators()
-                .addTo(scrollMagicController);
-
-            let revealList = TweenMax.staggerFromTo(".scene-3__list li.reveal", 0.75, { opacity: 0, transform: "translateY(50px)"}, { opacity: 1, transform: "translateY(0)", ease: Back.easeOut}, 0.1);
-
-            let scene3 = new ScrollMagic.Scene({
-                    triggerElement: '#scene-3',
-                })
-                .setTween(revealList)
-                // .addIndicators()
                 .addTo(scrollMagicController);
         
         },
@@ -124,16 +157,13 @@
 
         scene4: () => {
 
-            let expandImage = TweenMax.fromTo( '.scene-4__image', 1, { transform: 'scale(0)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 } )
-
-            let scene = new ScrollMagic.Scene({
-                    triggerElement: '#scene-4',
-                    duration: (window.outerHeight / 2),
-                    // triggerHook: "onEnter"
-                })
-                .setTween(expandImage)
-                // .addIndicators()
-                .addTo(scrollMagicController);
+            let expandImage = TweenMax.fromTo( '.scene-4__image', 1, { transform: 'scale(0)', opacity: 0 }, { transform: 'scale(1)', opacity: 1, ease: Linear.easeNone } ),
+                scene = new ScrollMagic.Scene({
+                        triggerElement: '#scene-4',
+                        duration: (window.outerHeight / 2),
+                    })
+                    .setTween(expandImage)
+                    .addTo(scrollMagicController);
 
         },
 
@@ -141,11 +171,48 @@
 
         scene5: () => {
 
+            let rotateLight = TweenMax.fromTo( '.scene-5__image.light', 1, { rotation: 30 }, { rotation: 0, transformOrigin: '523px 83px', ease: Linear.easeNone } ),
+                scene2 = new ScrollMagic.Scene({
+                        triggerElement: '.scene-5__images',
+                        duration: window.innerHeight + 900,
+                        triggerHook: "onEnter"
+                    })
+                    .setTween(rotateLight)
+                    .addTo(scrollMagicController);
+
+            let revealImage = TweenMax.fromTo( '.scene-5__image.man', 1, { transform: 'translateX(150px)' }, { transform: 'translateX(0)', ease: Linear.easeNone } ),
+                scene3 = new ScrollMagic.Scene({
+                        triggerElement: '.scene-5__images',
+                        duration: window.innerHeight + 900,
+                        triggerHook: "onEnter"
+                    })
+                    .setTween(revealImage)
+                    .addTo(scrollMagicController);
+
         },
 
         /* SCENE 6 ----------------------------------------------------------- */
 
         scene6: () => {
+
+            let manGoesRight = TweenMax.fromTo( '.scene-6__image.man', 1, { left: '40%' }, { left: '60%', ease: Linear.easeNone } );
+            let womanGoesLeft = TweenMax.fromTo( '.scene-6__image.woman', 1, { right: '40%' }, { right: '60%', ease: Linear.easeNone } );
+
+            let manScene = new ScrollMagic.Scene({
+                    triggerElement: '.scene-6__images',
+                    duration: window.innerHeight + 570,
+                    offset: window.innerHeight * -0.5
+                })
+                .setTween( manGoesRight )
+                .addTo(scrollMagicController);
+
+            let womanScene = new ScrollMagic.Scene({
+                    triggerElement: '.scene-6__images',
+                    duration: window.innerHeight + 508,
+                    offset: window.innerHeight * -0.5
+                })
+                .setTween( womanGoesLeft )
+                .addTo(scrollMagicController);
 
         },
 
@@ -164,7 +231,6 @@
         /* SCENE 9 ----------------------------------------------------------- */
 
         scene9: () => {
-
         },
 
     } // scenes

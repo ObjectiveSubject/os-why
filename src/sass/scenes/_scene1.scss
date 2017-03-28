@@ -1,5 +1,7 @@
 #scene-1 {
     // height: 150vh;
+    background-color: $dark-blue;
+    color: white;
 }
 
 .scene-1__content {
@@ -8,6 +10,11 @@
     left: 0;
     margin-top: -7rem;
     width: 100%;
+}
+
+.scene-1__copy {
+    margin-top: 0;
+    float: none;
 }
 
 .scene-1__rule {

@@ -1,44 +1,18 @@
 .scene {
     position: relative;
     min-height: 100vh;
-    background-color: rgba($dark-blue, 1);
+    // background-color: white;
     
     // TODO: FOR DEV ONLY
-    outline: 1px dashed rgba(lime, 0.3);
-    margin-bottom: 5px;
+    // outline: 1px dashed rgba(orange,1);
+    // margin-bottom: 5px;
 }
-
-.scene .grid-container.is-flex {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.is-flex {
-    .flex-child {
-        position: relative;
-        z-index: 1;
-        flex-basis: rem(370);
-        width: auto;
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-    .is-top {
-        align-self: flex-start
-    }
-    .is-bottom {
-        align-self: flex-end;
-    }
-    .is-left {
-        order: 0;
-    }
-    .is-right: {
-        order: 1;
-    }
-} 
 
 .scene-copy {
     @extend .clearfix;
     max-width: rem(370);
+    margin-top: rem(1000);
+    float: right;
 }
 
 .scene-rule {
@@ -55,6 +29,12 @@
 }
 
 .scene-list {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: $container-padding;
+    margin-top: 5rem;
+    text-shadow: 1px 1px white;
     li {
         @extend .h1;
         margin: 0.5em 0 0;

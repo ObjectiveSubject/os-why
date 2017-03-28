@@ -1,11 +1,8 @@
 #scene-3 {
-    min-height: 150vh;
+    min-height: 100vh;
     overflow: hidden;
-    padding-bottom: 50vh;
-
-    .grid-container {
-        min-height: 150vh;
-    }
+    padding-bottom: 10rem;
+    background-color: white;
 }
 
 .scene-3__image {
@@ -13,14 +10,5 @@
     z-index: 0;
     top: 40%;
     left: 50%;
-    opacity: 0.5;
     margin: -450px 0 0 -300px;
-}
-
-.scene-3__list {
-    margin-top: 5rem;
-}
-
-.scene-3__copy {
-    margin-top: 5rem;
 }

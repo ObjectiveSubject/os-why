@@ -1,14 +1,13 @@
 #scene-4 {
     // height: 150vh;
     // overflow: hidden;
-    padding-bottom: 10vh;
+    padding-bottom: 10rem;
 }
 
 .scene-4__image {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.scene-4__copy {
-    margin-top: 14rem;
+    position: absolute;
+    z-index: 0;
+    top: 5rem;
+    left: 50%;
+    margin: 0 0 0 -300px;
 }
