@@ -26,7 +26,7 @@
                                     0.75, 
                                     { opacity: 0, transform: "translateY(50px)"}, 
                                     { opacity: 1, transform: "translateY(0)", 
-                                    ease: Back.easeOut}, 
+                                    ease: Quad.easeOut}, 
                                     0.1
                                  );
 
@@ -45,7 +45,7 @@
                 
                 let stickyList = new ScrollMagic.Scene({
                     triggerElement: list,
-                    offset: -80,
+                    offset: -150,
                     duration: duration,
                     triggerHook: 'onLeave'
                 })

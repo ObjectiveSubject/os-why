@@ -33,7 +33,7 @@
     z-index: 1;
     top: 0;
     left: $container-padding;
-    margin-top: 5rem;
+    margin-top: rem(150);
     text-shadow: 1px 1px white;
     li {
         @extend .h1;

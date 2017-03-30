@@ -25,7 +25,7 @@
 
                 var listItems = list.querySelectorAll('.reveal'),
                     revealList = TweenMax.staggerFromTo(listItems, 0.75, { opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)",
-                    ease: Back.easeOut }, 0.1);
+                    ease: Quad.easeOut }, 0.1);
 
                 var scene = new ScrollMagic.Scene({
                     triggerElement: list
@@ -40,7 +40,7 @@
 
                 var stickyList = new ScrollMagic.Scene({
                     triggerElement: list,
-                    offset: -80,
+                    offset: -150,
                     duration: duration,
                     triggerHook: 'onLeave'
                 }).setPin(list).addTo(scrollMagicController);
