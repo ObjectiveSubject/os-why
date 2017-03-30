@@ -730,7 +730,8 @@ p {
 
 .scene-1__button {
   float: right;
-  margin-top: 3rem; }
+  margin-top: 3rem;
+  font-size: 1.5rem; }
 
 #scene-2 {
   height: 100vh;
