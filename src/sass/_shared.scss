@@ -1,0 +1,17 @@
+@function rem($val) {
+    @return #{ $val / 16 }rem;
+}
+
+@function tint($hex, $val) {
+    @return mix( $hex, white, $val );
+}
+
+@function shade($hex, $val) {
+    @return mix( $hex, black, $val );
+}
+
+@mixin media($size, $minmax: min, $media:all) {
+    @media #{$media} and ( #{$minmax}-width: $size ) {
+        @content;
+    }
+}

@@ -1,3 +1,5 @@
+.display-none { display: none; }
+
 .clearfix {
     &:before, &:after {
         content: "";
@@ -28,4 +30,11 @@
     padding-left: 5px;
     padding-right: 5px;
     text-shadow: none;
+}
+
+.mt-nudge { margin-top: 0.75rem; }
+@for $i from 0 through 6 {
+    .mt-#{$i} {
+        margin-top: $i * 1.5rem;
+    }
 }

@@ -12,6 +12,14 @@ li {
     margin: 0;
 }
 
+a {
+    color: $red;
+    transition: opacity $timing $easing;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
 .grid-container {
     position: relative;
     max-width: rem($max-width);
@@ -35,19 +43,12 @@ li {
     cursor: pointer;
     font-family: $sans-serif;
     font-weight: normal;
-    font-size: 1.5rem;
-    transition: padding $timing $easing, box-shadow $timing $easing;
+    font-size: 0.75rem;
     outline: 0;
-    &:hover {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-    &:focus {
-        box-shadow: 0 0 30px 2px $red;
-    }
 }
 
 .site-title {
+    display: block;
     text-indent: -9999px;
     overflow: hidden;
     width: 128px;
@@ -64,4 +65,9 @@ li {
     .scene-9 & {
         margin-left: rem(-11);
     }
+}
+
+.illo-credit {
+    opacity: 0.5;
+    font-size: 1rem;
 }

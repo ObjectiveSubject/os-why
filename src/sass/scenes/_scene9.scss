@@ -1,8 +1,24 @@
 .scene-9 {
     background-color: $dark-blue;
     color: white;
+    padding-bottom: 5rem;
 }
 
 .scene-9__copy {
+    float: left;
     margin-top: 10rem;
+}
+
+.footer-left {
+    @include media($md) {
+        float: left;
+        width: 50%;
+    }
+}
+
+.footer-right {
+    @include media($md) {
+        float: right;
+        width: 50%;
+    }
 }

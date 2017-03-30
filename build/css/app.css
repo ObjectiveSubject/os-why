@@ -402,6 +402,9 @@ template {
 [hidden] {
   display: none; }
 
+.display-none {
+  display: none; }
+
 .clearfix:before, .scene-copy:before, .clearfix:after, .scene-copy:after {
   content: "";
   display: table; }
@@ -427,6 +430,30 @@ template {
   padding-right: 5px;
   text-shadow: none; }
 
+.mt-nudge {
+  margin-top: 0.75rem; }
+
+.mt-0 {
+  margin-top: 0rem; }
+
+.mt-1 {
+  margin-top: 1.5rem; }
+
+.mt-2 {
+  margin-top: 3rem; }
+
+.mt-3 {
+  margin-top: 4.5rem; }
+
+.mt-4 {
+  margin-top: 6rem; }
+
+.mt-5 {
+  margin-top: 7.5rem; }
+
+.mt-6 {
+  margin-top: 9rem; }
+
 @keyframes slideUp {
   0% {
     transform: translate3d(0, 50vh, 0); }
@@ -438,6 +465,122 @@ template {
   src: url("../fonts/future_019-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/future_019-webfont.woff") format("woff"), url("../fonts/future_019-webfont.ttf") format("truetype"), url("../fonts/future_019-webfont.svg#FutureAMedium") format("svg");
   font-weight: normal;
   font-style: normal; }
+/* Forms
+ * ------------------------------------------- */
+form {
+  margin: 1.5 0 0; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea {
+  display: block;
+  width: 100%;
+  color: #0a1e2c;
+  background-color: white;
+  line-height: 1.4em;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 3px;
+  transition: all 300ms ease; }
+  @media all and (min-width: 600px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    textarea {
+      display: inline;
+      width: auto;
+      background: none; } }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    color: #0a1e2c;
+    background-color: white;
+    outline: 0; }
+  input[type="text"]::-webkit-input-placeholder,
+  input[type="email"]::-webkit-input-placeholder,
+  input[type="url"]::-webkit-input-placeholder,
+  input[type="password"]::-webkit-input-placeholder,
+  input[type="search"]::-webkit-input-placeholder,
+  input[type="number"]::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #858f96; }
+  input[type="text"]::-moz-placeholder,
+  input[type="email"]::-moz-placeholder,
+  input[type="url"]::-moz-placeholder,
+  input[type="password"]::-moz-placeholder,
+  input[type="search"]::-moz-placeholder,
+  input[type="number"]::-moz-placeholder,
+  textarea::-moz-placeholder {
+    color: #858f96; }
+  input[type="text"]:-moz-placeholder,
+  input[type="email"]:-moz-placeholder,
+  input[type="url"]:-moz-placeholder,
+  input[type="password"]:-moz-placeholder,
+  input[type="search"]:-moz-placeholder,
+  input[type="number"]:-moz-placeholder,
+  textarea:-moz-placeholder {
+    /* Older versions of Firefox */
+    color: #858f96; }
+  input[type="text"]:-ms-input-placeholder,
+  input[type="email"]:-ms-input-placeholder,
+  input[type="url"]:-ms-input-placeholder,
+  input[type="password"]:-ms-input-placeholder,
+  input[type="search"]:-ms-input-placeholder,
+  input[type="number"]:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #858f96; }
+
+textarea {
+  width: 100%;
+  resize: none;
+  min-height: 100px;
+  line-height: 1.25em; }
+
+label {
+  display: inline;
+  width: auto; }
+  label.block {
+    display: block;
+    width: 100%;
+    padding-bottom: 0.25em; }
+
+.subscribe-form {
+  position: relative;
+  margin: 0 0 0.5rem;
+  box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.5); }
+  .subscribe-form .input-row {
+    height: 42px;
+    position: relative; }
+  .subscribe-form input {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 100%; }
+    .subscribe-form input:hover, .subscribe-form input:focus {
+      background-color: white; }
+  .subscribe-form .button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: none;
+    color: #858f96;
+    text-transform: uppercase;
+    padding: 0 10px; }
+
 img {
   display: block; }
 
@@ -448,6 +591,12 @@ ul, ol {
 
 li {
   margin: 0; }
+
+a {
+  color: #e73d50;
+  transition: opacity 250ms ease-out; }
+  a:hover {
+    opacity: 0.5; }
 
 .grid-container {
   position: relative;
@@ -473,16 +622,11 @@ li {
   cursor: pointer;
   font-family: "FutureAMedium", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 1.5rem;
-  transition: padding 250ms ease-out, box-shadow 250ms ease-out;
+  font-size: 0.75rem;
   outline: 0; }
-  .button:hover {
-    padding-left: 1em;
-    padding-right: 1em; }
-  .button:focus {
-    box-shadow: 0 0 30px 2px #e73d50; }
 
 .site-title {
+  display: block;
   text-indent: -9999px;
   overflow: hidden;
   width: 128px;
@@ -496,10 +640,17 @@ li {
   .scene-9 .site-title {
     margin-left: -0.6875rem; }
 
+.illo-credit {
+  opacity: 0.5;
+  font-size: 1rem; }
+
 html {
   font-size: 100%; }
 
-body {
+body,
+select,
+input,
+textarea {
   font-family: "FutureAMedium", Helvetica, Arial, sans-serif;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -702,7 +853,19 @@ p {
 
 .scene-9 {
   background-color: #0a1e2c;
-  color: white; }
+  color: white;
+  padding-bottom: 5rem; }
 
 .scene-9__copy {
+  float: left;
   margin-top: 10rem; }
+
+@media all and (min-width: 768px) {
+  .footer-left {
+    float: left;
+    width: 50%; } }
+
+@media all and (min-width: 768px) {
+  .footer-right {
+    float: right;
+    width: 50%; } }
