@@ -23,34 +23,35 @@
 
                 let listItems = list.querySelectorAll('.reveal'),
                     revealList = TweenMax.staggerFromTo( listItems, 
-                                    0.75, 
+                                    0.5, 
                                     { opacity: 0, transform: "translateY(50px)"}, 
                                     { opacity: 1, transform: "translateY(0)", 
                                     ease: Quad.easeOut}, 
                                     0.1
                                  );
 
-                let scene = new ScrollMagic.Scene({
+                let duration = 870;
+                if ( list.className.indexOf('scene-7') > -1 ) {
+                    duration = 760;
+                }
+
+                let sceneList = new ScrollMagic.Scene({
                         triggerElement: list,
+                        offset: duration + 240
                     })
                     .setTween(revealList)
+                    .addIndicators({name:'reveal'})
                     .addTo(scrollMagicController);
-
-                let duration = 930;
-
-                if ( list.className.indexOf('scene-7') > -1 ) {
-                    duration = 830;
-                    console.log(list.className);                    
-                }
                 
                 let stickyList = new ScrollMagic.Scene({
-                    triggerElement: list,
-                    offset: -150,
-                    duration: duration,
-                    triggerHook: 'onLeave'
-                })
-                .setPin(list)
-                .addTo(scrollMagicController);
+                        triggerElement: list,
+                        offset: -150,
+                        duration: duration,
+                        triggerHook: 'onLeave'
+                    })
+                    .setPin(list)
+                    .addIndicators({name:'fix'})
+                    .addTo(scrollMagicController);
                     
             } );
 
