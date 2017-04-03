@@ -46,6 +46,17 @@
     }
 }
 
+.scene-directory {
+    .scene-2 & {
+        max-width: rem(370);
+        float: left;
+    }
+    li {
+        @extend .h1;
+        margin: 0.5em 0 0;
+    }
+}
+
 @import 'scene1';
 @import 'scene2';
 @import 'scene3';

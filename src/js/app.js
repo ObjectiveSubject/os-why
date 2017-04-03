@@ -36,17 +36,6 @@ if ( typeof Object.assign != 'function' ) {
     
     const scrollMagicController = new ScrollMagic.Controller();
 
-    // const scrollToLinks = document.querySelectorAll('.js-scroll-to');
-
-    // scrollToLinks.forEach( (item) => {
-    //     let target = item.dataset.target;
-    //     if ( ! target ) 
-    //         return;
-    //     item.addEventListener( 'click', (e) => {
-    //         scrollMagicController.scrollTo(target);
-    //     });
-    // } );
-
     const scenes = {
 
         /* SCENE LISTS ----------------------------------------------------- */
@@ -62,7 +51,7 @@ if ( typeof Object.assign != 'function' ) {
                                     0.5, 
                                     { opacity: 0, transform: "translateY(50px)"}, 
                                     { opacity: 1, transform: "translateY(0)", 
-                                    ease: Quad.easeOut}, 
+                                    ease: Power2.easeOut}, 
                                     0.1
                                  );
 
@@ -167,7 +156,14 @@ if ( typeof Object.assign != 'function' ) {
 
         scene2: () => {
 
-            let slideCurtain = TweenMax.fromTo( '.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone } ),
+            let directoryListItems = TweenMax.staggerFromTo( '.scene-directory li', 
+                    0.5, 
+                    { opacity: 0, transform: "translateY(50px)"}, 
+                    { opacity: 1, transform: "translateY(0)", 
+                    ease: Power2.easeOut}, 
+                    0.1
+                ),
+                slideCurtain = TweenMax.fromTo( '.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone } ),
                 timeline = new TimelineMax(),
                 showExplorer = TweenMax.fromTo( '.scene-2__image.man', 0.5, { x: '100px', opacity: 0 }, { x: 0, opacity: 1, ease: Power2.easeOut } ),
                 showLight = TweenMax.fromTo( '.scene-2__image.light', 0.5, { opacity: 0 }, { opacity: 1, ease: Power2.easeOut } );
@@ -175,6 +171,13 @@ if ( typeof Object.assign != 'function' ) {
             timeline
                 .add(showExplorer)
                 .add(showLight);
+
+            let showDirectory = new ScrollMagic.Scene({
+                    triggerElement: '#scene-3',
+                    triggerHook: "onEnter"
+                })
+                .setTween(directoryListItems)
+                .addTo(scrollMagicController);
 
             let curtain = new ScrollMagic.Scene({
                     triggerElement: '.scene-2__images',

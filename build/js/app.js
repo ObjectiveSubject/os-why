@@ -42,17 +42,6 @@ if (typeof Object.assign != 'function') {
 
     var scrollMagicController = new ScrollMagic.Controller();
 
-    // const scrollToLinks = document.querySelectorAll('.js-scroll-to');
-
-    // scrollToLinks.forEach( (item) => {
-    //     let target = item.dataset.target;
-    //     if ( ! target ) 
-    //         return;
-    //     item.addEventListener( 'click', (e) => {
-    //         scrollMagicController.scrollTo(target);
-    //     });
-    // } );
-
     var scenes = {
 
         /* SCENE LISTS ----------------------------------------------------- */
@@ -65,7 +54,7 @@ if (typeof Object.assign != 'function') {
 
                 var listItems = list.querySelectorAll('.reveal'),
                     revealList = TweenMax.staggerFromTo(listItems, 0.5, { opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)",
-                    ease: Quad.easeOut }, 0.1);
+                    ease: Power2.easeOut }, 0.1);
 
                 var duration = 870;
                 if (list.className.indexOf('scene-7') > -1) {
@@ -155,12 +144,19 @@ if (typeof Object.assign != 'function') {
 
         scene2: function scene2() {
 
-            var slideCurtain = TweenMax.fromTo('.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone }),
+            var directoryListItems = TweenMax.staggerFromTo('.scene-directory li', 0.5, { opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)",
+                ease: Power2.easeOut }, 0.1),
+                slideCurtain = TweenMax.fromTo('.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone }),
                 timeline = new TimelineMax(),
                 showExplorer = TweenMax.fromTo('.scene-2__image.man', 0.5, { x: '100px', opacity: 0 }, { x: 0, opacity: 1, ease: Power2.easeOut }),
                 showLight = TweenMax.fromTo('.scene-2__image.light', 0.5, { opacity: 0 }, { opacity: 1, ease: Power2.easeOut });
 
             timeline.add(showExplorer).add(showLight);
+
+            var showDirectory = new ScrollMagic.Scene({
+                triggerElement: '#scene-3',
+                triggerHook: "onEnter"
+            }).setTween(directoryListItems).addTo(scrollMagicController);
 
             var curtain = new ScrollMagic.Scene({
                 triggerElement: '.scene-2__images',
