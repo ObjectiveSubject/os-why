@@ -776,22 +776,51 @@ p {
   padding-bottom: 10rem;
   background-color: white; }
 
-.scene-3__image {
+.scene-3__images {
   position: absolute;
-  z-index: 0;
-  top: 40%;
+  top: 0;
   left: 50%;
-  margin: -450px 0 0 -300px; }
+  z-index: 0;
+  margin-left: -300px; }
+
+.scene-3__image.lines {
+  position: relative;
+  z-index: 0; }
+.scene-3__image.man {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 #scene-4 {
   padding-bottom: 10rem; }
 
-.scene-4__image {
+.scene-4__copy {
+  margin-top: 50rem; }
+
+.scene-4__images {
   position: absolute;
   z-index: 0;
-  top: 5rem;
+  top: 0;
   left: 50%;
   margin: 0 0 0 -300px; }
+
+.scene-4__image.box {
+  position: relative;
+  z-index: 1; }
+
+.scene-4__image.big-man {
+  position: absolute;
+  z-index: 2;
+  bottom: 150px;
+  left: 0;
+  transform-origin: 50% bottom; }
+
+.scene-4__image.small-man {
+  position: absolute;
+  z-index: 0;
+  bottom: 210px;
+  right: 0;
+  transform-origin: 50% bottom; }
 
 #scene-5 {
   padding-bottom: 30vh; }
