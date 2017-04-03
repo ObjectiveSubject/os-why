@@ -5,19 +5,19 @@
 .scene-6__images {
     position: absolute;
     z-index: 0;
-    top: 25rem;
+    top: 5rem;
     left: 0;
     width: 100%;
 
     .woman {
-        position:absolute;
+        position: absolute;
         right: 40%;
-        margin-right: -189px; // 378 ÷ 2;
+        margin-right: -300px; // 378 ÷ 2;
     }
     .man {
         position:absolute;
         left: 40%;
-        margin-left: -183px; // 366 ÷ 2
+        margin-left: -300px; // 366 ÷ 2
     }
 }
 

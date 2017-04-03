@@ -871,17 +871,17 @@ p {
 .scene-6__images {
   position: absolute;
   z-index: 0;
-  top: 25rem;
+  top: 5rem;
   left: 0;
   width: 100%; }
   .scene-6__images .woman {
     position: absolute;
     right: 40%;
-    margin-right: -189px; }
+    margin-right: -300px; }
   .scene-6__images .man {
     position: absolute;
     left: 40%;
-    margin-left: -183px; }
+    margin-left: -300px; }
 
 .scene-6__copy {
   margin-top: 62.5rem;

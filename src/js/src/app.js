@@ -2,31 +2,6 @@
  * App.js (in ES6, transpiled with Babel)
  */ 
 
-if ( typeof Object.assign != 'function' ) {
-    Object.assign = function(target, varArgs) { // .length of function is 2
-        'use strict';
-        if (target == null) { // TypeError if undefined or null
-            throw new TypeError('Cannot convert undefined or null to object');
-        }
-
-        var to = Object(target);
-
-        for (var index = 1; index < arguments.length; index++) {
-            var nextSource = arguments[index];
-
-            if (nextSource != null) { // Skip over if undefined or null
-                for (var nextKey in nextSource) {
-                    // Avoid bugs when hasOwnProperty is shadowed
-                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                    to[nextKey] = nextSource[nextKey];
-                    }
-                }
-            }
-        }
-        return to;
-    };
-}
-
 (() => {
     
     const color = {
@@ -277,8 +252,8 @@ if ( typeof Object.assign != 'function' ) {
 
         scene6: () => {
 
-            let manGoesRight = TweenMax.fromTo( '.scene-6__image.man', 1, { left: '40%' }, { left: '70%', ease: Linear.easeNone } );
-            let womanGoesLeft = TweenMax.fromTo( '.scene-6__image.woman', 1, { right: '40%' }, { right: '70%', ease: Linear.easeNone } );
+            let manGoesRight = TweenMax.fromTo( '.scene-6__image.man', 1, { left: '30%' }, { left: '60%', ease: Linear.easeNone } );
+            let womanGoesLeft = TweenMax.fromTo( '.scene-6__image.woman', 1, { right: '30%' }, { right: '60%', ease: Linear.easeNone } );
 
             let manScene = new ScrollMagic.Scene({
                     triggerElement: '.scene-6__images',
