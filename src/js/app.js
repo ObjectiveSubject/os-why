@@ -173,7 +173,6 @@
                         duration: (window.outerHeight / 2),
                     })
                     .setTween(expandImage)
-                    // .addIndicators({name: 'expand'})
                     .addTo(scrollMagicController),
                 scene2 = new ScrollMagic.Scene({
                         triggerElement: '.scene-4__images',
@@ -181,7 +180,6 @@
                         duration: (window.outerHeight / 2),
                     })
                     .setTween(shrinkImage)
-                    // .addIndicators({name: 'shrink'})
                     .addTo(scrollMagicController);
                 
 
@@ -215,8 +213,8 @@
 
         scene6: () => {
 
-            let manGoesRight = TweenMax.fromTo( '.scene-6__image.man', 1, { left: '40%' }, { left: '60%', ease: Linear.easeNone } );
-            let womanGoesLeft = TweenMax.fromTo( '.scene-6__image.woman', 1, { right: '40%' }, { right: '60%', ease: Linear.easeNone } );
+            let manGoesRight = TweenMax.fromTo( '.scene-6__image.man', 1, { left: '40%' }, { left: '70%', ease: Linear.easeNone } );
+            let womanGoesLeft = TweenMax.fromTo( '.scene-6__image.woman', 1, { right: '40%' }, { right: '70%', ease: Linear.easeNone } );
 
             let manScene = new ScrollMagic.Scene({
                     triggerElement: '.scene-6__images',

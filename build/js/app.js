@@ -144,16 +144,12 @@
                 triggerElement: '.scene-4__images',
                 offset: 250,
                 duration: window.outerHeight / 2
-            }).setTween(expandImage)
-            // .addIndicators({name: 'expand'})
-            .addTo(scrollMagicController),
+            }).setTween(expandImage).addTo(scrollMagicController),
                 scene2 = new ScrollMagic.Scene({
                 triggerElement: '.scene-4__images',
                 offset: 250,
                 duration: window.outerHeight / 2
-            }).setTween(shrinkImage)
-            // .addIndicators({name: 'shrink'})
-            .addTo(scrollMagicController);
+            }).setTween(shrinkImage).addTo(scrollMagicController);
         },
 
         /* SCENE 5 ----------------------------------------------------------- */
@@ -179,8 +175,8 @@
 
         scene6: function scene6() {
 
-            var manGoesRight = TweenMax.fromTo('.scene-6__image.man', 1, { left: '40%' }, { left: '60%', ease: Linear.easeNone });
-            var womanGoesLeft = TweenMax.fromTo('.scene-6__image.woman', 1, { right: '40%' }, { right: '60%', ease: Linear.easeNone });
+            var manGoesRight = TweenMax.fromTo('.scene-6__image.man', 1, { left: '40%' }, { left: '70%', ease: Linear.easeNone });
+            var womanGoesLeft = TweenMax.fromTo('.scene-6__image.woman', 1, { right: '40%' }, { right: '70%', ease: Linear.easeNone });
 
             var manScene = new ScrollMagic.Scene({
                 triggerElement: '.scene-6__images',
