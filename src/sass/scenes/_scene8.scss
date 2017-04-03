@@ -3,10 +3,18 @@
     // margin-bottom: 100vh;
 }
 
-.scene-8__image {
+.scene-8__images {
     position: absolute;
     z-index: 0;
     top: 5rem;
     left: 50%;
     margin: 0 0 0 -300px;
+}
+
+.scene-8__image {
+    &:not(.tree) {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

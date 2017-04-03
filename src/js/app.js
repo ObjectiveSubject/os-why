@@ -42,7 +42,7 @@
                         offset: duration + 240
                     })
                     .setTween(revealList)
-                    .addIndicators({name:'reveal'})
+                    // .addIndicators({name:'reveal'})
                     .addTo(scrollMagicController);
                 
                 let stickyList = new ScrollMagic.Scene({
@@ -238,11 +238,40 @@
 
         scene7: () => {
 
+            let tween = TweenMax.fromTo( '.scene-7__image.mark', 1, { y: '10%', opacity: '0' }, { y: '0%', opacity: '1', ease: Linear.easeNone } ),
+                scene = new ScrollMagic.Scene({
+                    triggerElement: '.scene-7__images',
+                    duration: 450
+                })
+                .setTween( tween )
+                .addTo(scrollMagicController);
+
         },
 
         /* SCENE 8 ----------------------------------------------------------- */
 
         scene8: () => {
+
+            let timeline = new TimelineMax(),
+                clipper  = TweenMax.fromTo( '.scene-image.clipper', 0.15, { y: '50px', opacity: '0' }, { y: '0', opacity: '1', ease: Quad.easeOut } ),
+                hose     = TweenMax.fromTo( '.scene-image.hose', 0.15, { x: '-50px', opacity: '0' }, { x: '0', opacity: '1', ease: Quad.easeOut } ),
+                ladder   = TweenMax.fromTo( '.scene-image.ladder', 0.15, { x: '50px', opacity: '0' }, { x: '0', opacity: '1', ease: Quad.easeOut } ),
+                trimmer  = TweenMax.fromTo( '.scene-image.trimmer', 0.15, { x: '-50px', opacity: '0' }, { x: '0', opacity: '1', ease: Quad.easeOut } ),
+                waterer  = TweenMax.fromTo( '.scene-image.waterer', 0.15, { x: '50px', opacity: '0' }, { x: '0', opacity: '1', ease: Quad.easeOut } );
+
+            timeline
+                .add(clipper)
+                .add(hose)
+                .add(ladder)
+                .add(trimmer)
+                .add(waterer);
+
+            let scene = new ScrollMagic.Scene({
+                    triggerElement: '.scene-8__images',
+                    triggerHook: 'onLeave'
+                })
+                .setTween( timeline )
+                .addTo(scrollMagicController);
 
         },
 

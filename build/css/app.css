@@ -861,12 +861,18 @@ p {
 #scene-7 {
   padding-bottom: 30vh; }
 
-.scene-7__image {
+.scene-7__images {
   position: absolute;
   z-index: 0;
   top: 5rem;
   left: 50%;
   margin: 0 0 0 -300px; }
+
+.scene-7__image.mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; }
 
 .scene-7__copy {
   margin-top: 56.25rem; }
@@ -874,12 +880,17 @@ p {
 #scene-8 {
   padding-bottom: 10rem; }
 
-.scene-8__image {
+.scene-8__images {
   position: absolute;
   z-index: 0;
   top: 5rem;
   left: 50%;
   margin: 0 0 0 -300px; }
+
+.scene-8__image:not(.tree) {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .scene-9 {
   background-color: #0a1e2c;

@@ -2,12 +2,21 @@
     padding-bottom: 30vh;
 }
 
-.scene-7__image {
+.scene-7__images {
     position: absolute;
     z-index: 0;
     top: 5rem;
     left: 50%;
     margin: 0 0 0 -300px;
+}
+
+.scene-7__image {
+    &.mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 }
 
 .scene-7__copy {
