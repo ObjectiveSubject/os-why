@@ -59,8 +59,10 @@
             allScenes.forEach(function (sceneObj) {
 
                 var rule = sceneObj.querySelector('.scene-rule');
-                var drawRule = TweenMax.fromTo(rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone });
-                var sceneOptions = {
+                if (rule.className.indexOf('no-draw') > -1) return;
+
+                var drawRule = TweenMax.fromTo(rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone }),
+                    sceneOptions = {
                     triggerElement: sceneObj,
                     duration: '50%',
                     triggerHook: "onEnter"
@@ -106,15 +108,26 @@
 
         scene2: function scene2() {
 
-            var showimage = TweenMax.fromTo('.scene-2__image', 1, { opacity: 0 }, { opacity: 1, ease: Linear.easeNone });
+            var slideCurtain = TweenMax.fromTo('.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone }),
+                timeline = new TimelineMax(),
+                showExplorer = TweenMax.fromTo('.scene-2__image.man', 0.5, { x: '100px', opacity: 0 }, { x: 0, opacity: 1, ease: Quad.easeOut }),
+                showLight = TweenMax.fromTo('.scene-2__image.light', 0.5, { opacity: 0 }, { opacity: 1, ease: Quad.easeOut });
 
-            var scene = new ScrollMagic.Scene({
-                triggerElement: '#scene-2',
-                duration: '50%',
-                triggerHook: "onLeave"
-            }).setTween(showimage).addTo(scrollMagicController);
+            timeline.add(showExplorer).add(showLight);
 
-            var scene2 = new ScrollMagic.Scene({
+            var curtain = new ScrollMagic.Scene({
+                triggerElement: '.scene-2__images',
+                duration: window.innerHeight * 0.35,
+                triggerHook: "onEnter"
+            }).setTween(slideCurtain).addIndicators({ name: 'curtain' }).addTo(scrollMagicController);
+
+            var explorer = new ScrollMagic.Scene({
+                triggerElement: '.scene-2__images',
+                offset: window.innerHeight * 0.35,
+                triggerHook: "onEnter"
+            }).setTween(timeline).addIndicators({ name: 'explorer' }).addTo(scrollMagicController);
+
+            var stickyBg = new ScrollMagic.Scene({
                 triggerElement: '#scene-2',
                 duration: '200%',
                 triggerHook: "onLeave"

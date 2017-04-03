@@ -20,11 +20,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 2px;
-    background-color: $red;
+    height: 4px;
+    background-image: url(../img/line-bg.png);
+    background-size: 85px 4px;
+    @include hidpi {
+        background-image: url(../img/line-bg@2x.png);
+    }
     &.draws-rtl {
         left: auto;
         right: 0;
+        background-position-x: right;
     }
 }
 
