@@ -4,6 +4,35 @@
  * App.js (in ES6, transpiled with Babel)
  */
 
+if (typeof Object.assign != 'function') {
+    Object.assign = function (target, varArgs) {
+        // .length of function is 2
+        'use strict';
+
+        if (target == null) {
+            // TypeError if undefined or null
+            throw new TypeError('Cannot convert undefined or null to object');
+        }
+
+        var to = Object(target);
+
+        for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+
+            if (nextSource != null) {
+                // Skip over if undefined or null
+                for (var nextKey in nextSource) {
+                    // Avoid bugs when hasOwnProperty is shadowed
+                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                        to[nextKey] = nextSource[nextKey];
+                    }
+                }
+            }
+        }
+        return to;
+    };
+}
+
 (function () {
 
     var color = {
@@ -12,6 +41,17 @@
     };
 
     var scrollMagicController = new ScrollMagic.Controller();
+
+    // const scrollToLinks = document.querySelectorAll('.js-scroll-to');
+
+    // scrollToLinks.forEach( (item) => {
+    //     let target = item.dataset.target;
+    //     if ( ! target ) 
+    //         return;
+    //     item.addEventListener( 'click', (e) => {
+    //         scrollMagicController.scrollTo(target);
+    //     });
+    // } );
 
     var scenes = {
 
@@ -66,7 +106,10 @@
                     triggerElement: sceneObj,
                     duration: '50%',
                     triggerHook: "onEnter"
-                };
+                },
+                    customOptions = rule.dataset.options ? JSON.parse(rule.dataset.options) : {};
+
+                Object.assign(sceneOptions, customOptions);
 
                 if (sceneObj.className.indexOf('scene-1') > -1) {
                     sceneOptions.offset = window.outerHeight / 2;
@@ -97,10 +140,14 @@
 
         scene1: function scene1() {
 
-            var showButton = TweenMax.fromTo('.scene-1__button', 0.5, { opacity: 0 }, { opacity: 1 });
+            var button = document.querySelector('.scene-1__button'),
+                showButton = TweenMax.fromTo(button, 0.5, { opacity: 0 }, { opacity: 1, onComplete: function onComplete() {
+                    button.className += ' anim-pulse';
+                } });
 
             var scene2 = new ScrollMagic.Scene({
-                triggerElement: '.scene-1__button'
+                triggerElement: '.scene-1__button',
+                offset: '-24px'
             }).setTween(showButton).addTo(scrollMagicController);
         },
 
@@ -119,13 +166,13 @@
                 triggerElement: '.scene-2__images',
                 duration: window.innerHeight * 0.35,
                 triggerHook: "onEnter"
-            }).setTween(slideCurtain).addIndicators({ name: 'curtain' }).addTo(scrollMagicController);
+            }).setTween(slideCurtain).addTo(scrollMagicController);
 
             var explorer = new ScrollMagic.Scene({
                 triggerElement: '.scene-2__images',
                 offset: window.innerHeight * 0.35,
                 triggerHook: "onEnter"
-            }).setTween(timeline).addIndicators({ name: 'explorer' }).addTo(scrollMagicController);
+            }).setTween(timeline).addTo(scrollMagicController);
 
             var stickyBg = new ScrollMagic.Scene({
                 triggerElement: '#scene-2',

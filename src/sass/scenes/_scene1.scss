@@ -6,9 +6,8 @@
 
 .scene-1__content {
     position: absolute;
-    top: 75%;
+    bottom: 0;
     left: 0;
-    margin-top: -7rem;
     width: 100%;
 }
 
@@ -18,7 +17,8 @@
 }
 
 .scene-1__rule {
-    top: 75%;
+    bottom: 4rem;
+    top: auto;
 }
 
 .scene-1__button {
