@@ -126,8 +126,8 @@
 
             let slideCurtain = TweenMax.fromTo( '.scene-2__image.curtain', 1, { y: '180px' }, { y: 0, ease: Linear.easeNone } ),
                 timeline = new TimelineMax(),
-                showExplorer = TweenMax.fromTo( '.scene-2__image.man', 0.5, { x: '100px', opacity: 0 }, { x: 0, opacity: 1, ease: Quad.easeOut } ),
-                showLight = TweenMax.fromTo( '.scene-2__image.light', 0.5, { opacity: 0 }, { opacity: 1, ease: Quad.easeOut } );
+                showExplorer = TweenMax.fromTo( '.scene-2__image.man', 0.5, { x: '100px', opacity: 0 }, { x: 0, opacity: 1, ease: Power2.easeOut } ),
+                showLight = TweenMax.fromTo( '.scene-2__image.light', 0.5, { opacity: 0 }, { opacity: 1, ease: Power2.easeOut } );
 
             timeline
                 .add(showExplorer)
