@@ -1,3 +1,5 @@
 #! /bin/bash
 
-echo "hello"
+echo "deploying site..."
+git checkout gh-pages
+echo "deploy complete!"
