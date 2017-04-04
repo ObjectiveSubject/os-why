@@ -588,6 +588,10 @@ label {
     text-transform: uppercase;
     padding: 0 10px; }
 
+@media all and (min-width: 1000px) {
+  body:before {
+    content: "large"; } }
+
 img {
   display: block; }
 

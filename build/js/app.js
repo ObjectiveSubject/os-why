@@ -34,6 +34,25 @@ if (typeof Object.assign != 'function') {
 }
 'use strict';
 
+/*
+ * OS Helpers
+ */
+
+(function () {
+
+    var OSHelpers = {
+
+        getMediaSize: function getMediaSize(elem) {
+            elem = elem ? elem : 'body';
+            return window.getComputedStyle(document.querySelector(elem), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+        }
+
+    };
+
+    window.OSHelpers = OSHelpers;
+})();
+'use strict';
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*
@@ -332,13 +351,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 (function () {
 
+    var h = OSHelpers;
+    // abort if viewport isn't wide enough or certain features aren't supported
+    if (h.getMediaSize() !== "large" || !document.querySelector('body').dataset) return;
+
     var color = {
         red: '#e73d50',
         darkBlue: '#0a1e2c'
     };
-
     var scrollMagicController = new ScrollMagic.Controller();
-
     var scenes = {
 
         /* SCENE LISTS ----------------------------------------------------- */
@@ -419,10 +440,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var pulseTitle = TweenMax.fromTo('.site-header .site-title', 1, { opacity: 0.3, transform: 'translateY(40vh)' }, { opacity: 1, transform: 'translateY(40vh)', yoyo: true, repeat: 2, onComplete: function onComplete() {
                     TweenMax.fromTo('.site-header .site-title', 1, { transform: 'translateY(40vh)' }, { transform: 'translateY(0)', ease: 'Quad.easeInOut' });
                 } }),
-                slideInCopy = TweenMax.fromTo('.scene-1__copy', 1, { transform: 'translateY(100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, delay: 3, ease: 'Quad.easeInOut', onComplete: function onComplete() {
-                    var app = document.getElementById('app');
-                    app.className = app.className.split('loading').join('') + 'initialized';
-                } });
+                slideInCopy = TweenMax.fromTo('.scene-1__copy', 1, { transform: 'translateY(100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, delay: 3, ease: 'Quad.easeInOut' });
         },
 
         /* SCENE 1 ----------------------------------------------------------- */
@@ -590,4 +608,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // check to see if it's a function
         if (typeof scenes[fn] === "function") scenes[fn]();
     });
+
+    // let app = document.getElementById('app'),
+    //     appClass = app.className;
+
+    // app.className = appClass.split('loading').join(' initialized ');
+
 })();
