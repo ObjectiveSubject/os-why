@@ -396,7 +396,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     duration: '50%',
                     triggerHook: "onEnter"
                 },
-                    customOptions = rule.dataset.options ? JSON.parse(rule.dataset.options) : {};
+                    customOptions = rule.dataset && rule.dataset.options ? JSON.parse(rule.dataset.options) : {};
 
                 Object.assign(sceneOptions, customOptions);
 
