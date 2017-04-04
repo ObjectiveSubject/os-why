@@ -19,9 +19,10 @@
 
             let sceneLists = document.querySelectorAll('.scene-list');
 
-            sceneLists.forEach( (list) => {
+            for ( var i=0; sceneLists.length > i; i++ ) {
 
-                let listItems = list.querySelectorAll('.reveal'),
+                let list = sceneLists[i],
+                    listItems = list.querySelectorAll('.reveal'),
                     revealList = TweenMax.staggerFromTo( listItems, 
                                     0.5, 
                                     { opacity: 0, transform: "translateY(50px)"}, 
@@ -55,7 +56,7 @@
                     // .addIndicators({name:'fix'})
                     .addTo(scrollMagicController);
                     
-            } );
+            }
 
         },
 
@@ -63,9 +64,11 @@
 
             let allScenes = document.querySelectorAll('.scene'); 
 
-            allScenes.forEach( (sceneObj) => {
+            for ( var i=0; allScenes.length > i; i++ ) {
 
-                let rule = sceneObj.querySelector('.scene-rule');
+                let sceneObj = allScenes[i],
+                    rule = sceneObj.querySelector('.scene-rule');
+
                 if ( rule.className.indexOf( 'no-draw' ) > -1 ) 
                     return;
 
@@ -91,7 +94,7 @@
                     .setTween(drawRule)
                     .addTo(scrollMagicController);
 
-            } );
+            };
 
         },
 

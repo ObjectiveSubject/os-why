@@ -1,5 +1,39 @@
 'use strict';
 
+/*
+ * Extend Object
+ */
+
+if (typeof Object.assign != 'function') {
+  Object.assign = function (target, varArgs) {
+    // .length of function is 2
+    'use strict';
+
+    if (target == null) {
+      // TypeError if undefined or null
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+
+    var to = Object(target);
+
+    for (var index = 1; index < arguments.length; index++) {
+      var nextSource = arguments[index];
+
+      if (nextSource != null) {
+        // Skip over if undefined or null
+        for (var nextKey in nextSource) {
+          // Avoid bugs when hasOwnProperty is shadowed
+          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+            to[nextKey] = nextSource[nextKey];
+          }
+        }
+      }
+    }
+    return to;
+  };
+}
+'use strict';
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*
@@ -313,9 +347,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             var sceneLists = document.querySelectorAll('.scene-list');
 
-            sceneLists.forEach(function (list) {
+            for (var i = 0; sceneLists.length > i; i++) {
 
-                var listItems = list.querySelectorAll('.reveal'),
+                var list = sceneLists[i],
+                    listItems = list.querySelectorAll('.reveal'),
                     revealList = TweenMax.staggerFromTo(listItems, 0.5, { opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)",
                     ease: Power2.easeOut }, 0.1);
 
@@ -341,16 +376,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }).setPin(list)
                 // .addIndicators({name:'fix'})
                 .addTo(scrollMagicController);
-            });
+            }
         },
 
         drawLines: function drawLines() {
 
             var allScenes = document.querySelectorAll('.scene');
 
-            allScenes.forEach(function (sceneObj) {
+            for (var i = 0; allScenes.length > i; i++) {
 
-                var rule = sceneObj.querySelector('.scene-rule');
+                var sceneObj = allScenes[i],
+                    rule = sceneObj.querySelector('.scene-rule');
+
                 if (rule.className.indexOf('no-draw') > -1) return;
 
                 var drawRule = TweenMax.fromTo(rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone }),
@@ -372,7 +409,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
 
                 var scene = new ScrollMagic.Scene(sceneOptions).setTween(drawRule).addTo(scrollMagicController);
-            });
+            };
         },
 
         /* HEADER SCENE ----------------------------------------------------- */
