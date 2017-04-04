@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Run this script to deploy the app to Github Pages.
+# Run this script with `sh deploy.sh` to deploy the app to Github Pages.
 
 # Exit if any subcommand fails.
 set -e
