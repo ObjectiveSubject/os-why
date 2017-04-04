@@ -718,6 +718,8 @@ p {
   z-index: 1;
   top: 0;
   left: 20;
+  width: 100%;
+  max-width: 23.125rem;
   margin-top: 9.375rem;
   text-shadow: 1px 1px white; }
   .scene-list li {
