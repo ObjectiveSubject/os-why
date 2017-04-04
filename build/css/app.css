@@ -590,6 +590,7 @@ label {
 
 @media all and (min-width: 1000px) {
   body:before {
+    display: none;
     content: "large"; } }
 
 img {

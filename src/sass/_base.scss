@@ -1,6 +1,7 @@
 body {
     @include media($lg) {
         &:before {
+            display: none;
             content: "large"
         }
     }
