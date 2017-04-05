@@ -343,7 +343,6 @@
                 let link = smoothScrollLinks[i];
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    console.log(e.target);
                     let elId = e.target.dataset.href;
                     document.querySelector(elId).scrollIntoView({ behavior: 'smooth' });
                 });

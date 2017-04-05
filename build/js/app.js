@@ -621,7 +621,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 var link = smoothScrollLinks[i];
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    console.log(e.target);
                     var elId = e.target.dataset.href;
                     document.querySelector(elId).scrollIntoView({ behavior: 'smooth' });
                 });
