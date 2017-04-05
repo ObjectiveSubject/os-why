@@ -9,6 +9,10 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    .static-app & {
+        top: 50%;
+        bottom: auto;
+    }
 }
 
 .scene-1__copy {
@@ -19,6 +23,10 @@
 .scene-1__rule {
     bottom: 4rem;
     top: auto;
+    .static-app & {
+        bottom: auto;
+        top: calc(50% + 6rem);
+    }
 }
 
 .scene-1__button {

@@ -3,11 +3,16 @@
  */ 
 
 (() => {
+
+    let app = document.getElementById('app'),
+        appClass = app.className;
     
     const h = OSHelpers;
     // abort if viewport isn't wide enough or certain features aren't supported
-    if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset )
+    // if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
+        app.className = appClass.split("loading").join(" initialized ");
         return;
+    // }
 
     const color = {
         red: '#e73d50',
@@ -329,11 +334,8 @@
         // check to see if it's a function
         if ( typeof scenes[fn] === "function" ) scenes[fn]();
     } );
-
-    // let app = document.getElementById('app'),
-    //     appClass = app.className;
     
-    // app.className = appClass.split('loading').join(' initialized ');
+    app.className = appClass.split('loading static-app').join(' initialized ');
 
 
 })();

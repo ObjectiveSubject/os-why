@@ -343,7 +343,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     polyfill();
   }
 })(window, document);
-'use strict';
+"use strict";
 
 /*
  * App.js (in ES6, transpiled with Babel)
@@ -351,9 +351,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 (function () {
 
+    var app = document.getElementById('app'),
+        appClass = app.className;
+
     var h = OSHelpers;
     // abort if viewport isn't wide enough or certain features aren't supported
-    if (h.getMediaSize() !== "large" || !document.querySelector('body').dataset) return;
+    // if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
+    app.className = appClass.split("loading").join(" initialized ");
+    return;
+    // }
 
     var color = {
         red: '#e73d50',
@@ -609,9 +615,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (typeof scenes[fn] === "function") scenes[fn]();
     });
 
-    // let app = document.getElementById('app'),
-    //     appClass = app.className;
-
-    // app.className = appClass.split('loading').join(' initialized ');
-
+    app.className = appClass.split('loading static-app').join(' initialized ');
 })();

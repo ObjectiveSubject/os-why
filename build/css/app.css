@@ -611,6 +611,12 @@ a {
   a:hover {
     opacity: 0.5; }
 
+#app {
+  opacity: 0;
+  transition: opacity 250ms ease-out; }
+  #app.initialized {
+    opacity: 1; }
+
 .grid-container {
   position: relative;
   max-width: 50rem;
@@ -745,6 +751,9 @@ p {
   bottom: 0;
   left: 0;
   width: 100%; }
+  .static-app .scene-1__content {
+    top: 50%;
+    bottom: auto; }
 
 .scene-1__copy {
   margin-top: 0;
@@ -753,6 +762,9 @@ p {
 .scene-1__rule {
   bottom: 4rem;
   top: auto; }
+  .static-app .scene-1__rule {
+    bottom: auto;
+    top: calc(50% + 6rem); }
 
 .scene-1__button {
   float: right;
@@ -762,6 +774,8 @@ p {
 #scene-2 {
   height: 100vh;
   margin-bottom: 100vh; }
+  .static-app #scene-2 {
+    margin-bottom: 0; }
 
 .scene-2__background {
   height: 100%;
@@ -784,6 +798,8 @@ p {
   width: 100%;
   height: 100%;
   background: #0a1e2c; }
+  .static-app .scene-2__foreground {
+    height: 9.375rem; }
 
 .overflow-container {
   overflow: hidden; }
@@ -885,10 +901,14 @@ p {
     position: absolute;
     right: 40%;
     margin-right: -300px; }
+    .static-app .scene-6__images .woman {
+      right: 45%; }
   .scene-6__images .man {
     position: absolute;
     left: 40%;
     margin-left: -300px; }
+    .static-app .scene-6__images .man {
+      left: 50%; }
 
 .scene-6__copy {
   margin-top: 62.5rem;
