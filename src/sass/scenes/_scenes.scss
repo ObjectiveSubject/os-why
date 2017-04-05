@@ -1,18 +1,19 @@
 .scene {
     position: relative;
-    min-height: 100vh;
     background-color: white;
-    
-    // TODO: FOR DEV ONLY
-    // outline: 1px dashed rgba(orange,1);
-    // margin-bottom: 5px;
+    padding-bottom: rem(100);
+
+    @include media($lg) {
+        min-height: 100vh;
+        padding-bottom: 50vh;
+    }
 }
 
 .scene-copy {
     @extend .clearfix;
     max-width: rem(370);
     margin-top: rem(1000);
-    @include media($lg) {
+    @include media($md) {
         float: right;
     }
 }

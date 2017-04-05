@@ -181,6 +181,7 @@
                     triggerHook: "onEnter"
                 })
                 .setPin('.scene-2__background', {pushFollowers: false})
+                .addIndicators()
                 .addTo(scrollMagicController);
 
         },
@@ -336,12 +337,11 @@
 
     const events = {
         init: () => {
+
             let smoothScrollLinks = document.querySelectorAll('.js-smooth-scroll');
+
             for ( var i=0; smoothScrollLinks.length > i; i++ ) {
                 let link = smoothScrollLinks[i];
-
-                console.log(link);
-
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     console.log(e.target);
@@ -349,6 +349,7 @@
                     document.querySelector(elId).scrollIntoView({ behavior: 'smooth' });
                 });
             }
+
         }  
     };
 

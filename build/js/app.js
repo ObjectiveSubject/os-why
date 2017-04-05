@@ -493,7 +493,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 offset: 200,
                 duration: window.innerHeight + 200,
                 triggerHook: "onEnter"
-            }).setPin('.scene-2__background', { pushFollowers: false }).addTo(scrollMagicController);
+            }).setPin('.scene-2__background', { pushFollowers: false }).addIndicators().addTo(scrollMagicController);
         },
 
         /* SCENE 3 ----------------------------------------------------------- */
@@ -614,12 +614,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var events = {
         init: function init() {
+
             var smoothScrollLinks = document.querySelectorAll('.js-smooth-scroll');
+
             for (var i = 0; smoothScrollLinks.length > i; i++) {
                 var link = smoothScrollLinks[i];
-
-                console.log(link);
-
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     console.log(e.target);

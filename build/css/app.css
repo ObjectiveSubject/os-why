@@ -712,13 +712,17 @@ p {
 
 .scene {
   position: relative;
-  min-height: 100vh;
-  background-color: white; }
+  background-color: white;
+  padding-bottom: 6.25rem; }
+  @media all and (min-width: 1000px) {
+    .scene {
+      min-height: 100vh;
+      padding-bottom: 50vh; } }
 
 .scene-copy {
   max-width: 23.125rem;
   margin-top: 62.5rem; }
-  @media all and (min-width: 1000px) {
+  @media all and (min-width: 768px) {
     .scene-copy {
       float: right; } }
 
@@ -763,8 +767,10 @@ p {
   margin: 0.5em 0 0; }
 
 .scene-1 {
+  height: 100vh;
   background-color: #0a1e2c;
-  color: white; }
+  color: white;
+  padding-bottom: 0; }
 
 .scene-1__content {
   position: absolute;
@@ -793,11 +799,11 @@ p {
 
 .scene-2 {
   padding-bottom: 6.25rem;
-  margin-top: calc(50vh - 12.5rem); }
+  margin-top: 0; }
   @media all and (min-width: 1000px) {
     .scene-2 {
-      padding-bottom: 50vh;
       height: 100vh;
+      padding-bottom: 50vh;
       margin-top: calc(100vh - 12.5rem); }
       .static-app .scene-2 {
         padding-bottom: 0; } }
@@ -806,10 +812,10 @@ p {
     display: block;
     position: absolute;
     z-index: 10;
-    top: calc(-50vh + 12.5rem);
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(50vh - 12.5rem);
+    height: 0;
     background-color: #0a1e2c; }
     @media all and (min-width: 1000px) {
       .scene-2:before {
@@ -833,14 +839,17 @@ p {
       top: -50%; } }
 
 .scene-2__copy {
-  margin-top: 0; }
+  margin-top: 3rem; }
+  @media all and (min-width: 1000px) {
+    .scene-2__copy {
+      margin-top: 0; } }
 
 .scene-2__foreground {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
+  height: 8.75rem;
   background: #0a1e2c; }
   @media all and (min-width: 1000px) {
     .scene-2__foreground {
@@ -871,9 +880,7 @@ p {
 
 .scene-3 {
   min-height: 100vh;
-  overflow: hidden;
-  padding-bottom: 50vh;
-  background-color: white; }
+  overflow: hidden; }
 
 .scene-3__images {
   position: relative;
@@ -901,9 +908,6 @@ p {
 @media all and (max-width: 999px) {
   .scene-3__copy {
     margin-top: 0; } }
-
-.scene-4 {
-  padding-bottom: 50vh; }
 
 .scene-4__copy {
   margin-top: 0; }
@@ -943,9 +947,6 @@ p {
     right: 0;
     transform-origin: 480px 680px; }
 
-.scene-5 {
-  padding-bottom: 50vh; }
-
 .scene-5__images {
   position: relative;
   z-index: 0;
@@ -971,9 +972,6 @@ p {
 @media all and (max-width: 999px) {
   .scene-5__copy {
     margin-top: 0; } }
-
-.scene-6 {
-  padding-bottom: 50vh; }
 
 .scene-6__images {
   position: relative;
@@ -1015,9 +1013,6 @@ p {
     .scene-6__copy {
       margin-top: 50rem; } }
 
-.scene-7 {
-  padding-bottom: 50vh; }
-
 .scene-7__images {
   position: relative;
   margin-top: 9.375rem;
@@ -1044,9 +1039,6 @@ p {
   @media all and (min-width: 1000px) {
     .scene-7__copy {
       margin-top: 56.25rem; } }
-
-.scene-8 {
-  padding-bottom: 50vh; }
 
 .scene-8__images {
   position: relative;
@@ -1079,7 +1071,10 @@ p {
 
 .scene-9__copy {
   float: left;
-  margin-top: 10rem; }
+  margin-top: 2rem; }
+  @media all and (min-width: 1000px) {
+    .scene-9__copy {
+      margin-top: 10rem; } }
 
 @media all and (min-width: 768px) {
   .footer-left {
