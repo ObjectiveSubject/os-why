@@ -74,7 +74,7 @@
                     rule = sceneObj.querySelector('.scene-rule');
 
                 if ( rule.className.indexOf( 'no-draw' ) > -1 ) 
-                    return;
+                    continue;
 
                 let drawRule = TweenMax.fromTo( rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone } ),
                     sceneOptions = {

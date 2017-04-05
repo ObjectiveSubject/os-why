@@ -409,7 +409,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 var sceneObj = allScenes[i],
                     rule = sceneObj.querySelector('.scene-rule');
 
-                if (rule.className.indexOf('no-draw') > -1) return;
+                if (rule.className.indexOf('no-draw') > -1) continue;
 
                 var drawRule = TweenMax.fromTo(rule, 1, { width: '0' }, { width: '100%', ease: Linear.easeNone }),
                     sceneOptions = {
