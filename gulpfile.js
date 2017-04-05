@@ -3,6 +3,7 @@
 
 var gulp        	= require('gulp'),
 	babel 			= require('gulp-babel'),
+	autoprefixer 	= require('gulp-autoprefixer'),
 	cleanCSS    	= require('gulp-clean-css'),
 	concat			= require('gulp-concat'),
 	imagemin		= require('gulp-imagemin'),
@@ -103,6 +104,8 @@ gulp.task( 'webp', function() {
 gulp.task( 'sass', function() {
 	return sass( path.sass.src, options.sass )
 		.on( 'error', sass.logError )
+		.pipe( sourcemaps.init() )
+		.pipe(autoprefixer())
 		.pipe( sourcemaps.write() )
 		.pipe( gulp.dest( path.sass.dest ) )
 		.pipe( rename( options.sass.rename ) )
