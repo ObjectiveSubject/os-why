@@ -15,7 +15,7 @@ fi
 git checkout -b gh-pages
 
 # Delete files.
-find . -maxdepth 1 ! -name 'bower_components' ! -name 'build' ! -name 'static' ! -name 'index.html' ! -name 'node_modules' ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
+find . -maxdepth 1 ! -name 'bower_components' ! -name 'build' ! -name 'static' ! -name 'index.html' ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
 
 # Push to gh-pages.
 git add -fA
