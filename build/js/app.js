@@ -390,16 +390,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
                 var sceneList = new ScrollMagic.Scene({
                     triggerElement: list,
-                    offset: duration + 240
-                }).setTween(revealList)
-                // .addIndicators({name:'reveal'})
-                .addTo(scrollMagicController);
+                    offset: duration + 40
+                }).setTween(revealList).addIndicators({ name: 'reveal' }).addTo(scrollMagicController);
 
                 var stickyList = new ScrollMagic.Scene({
                     triggerElement: list,
-                    offset: -150,
-                    duration: duration,
-                    triggerHook: 'onLeave'
+                    offset: 40,
+                    duration: duration
                 }).setPin(list)
                 // .addIndicators({name:'fix'})
                 .addTo(scrollMagicController);

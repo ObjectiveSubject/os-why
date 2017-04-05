@@ -48,17 +48,16 @@
 
                 let sceneList = new ScrollMagic.Scene({
                         triggerElement: list,
-                        offset: duration + 240
+                        offset: duration + 40
                     })
                     .setTween(revealList)
-                    // .addIndicators({name:'reveal'})
+                    .addIndicators({name:'reveal'})
                     .addTo(scrollMagicController);
                 
                 let stickyList = new ScrollMagic.Scene({
                         triggerElement: list,
-                        offset: -150,
+                        offset: 40,
                         duration: duration,
-                        triggerHook: 'onLeave'
                     })
                     .setPin(list)
                     // .addIndicators({name:'fix'})
