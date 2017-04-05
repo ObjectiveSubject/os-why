@@ -9,6 +9,10 @@
     }
 }
 
+.scene-content {
+    overflow-x: hidden;
+}
+
 .scene-copy {
     @extend .clearfix;
     max-width: rem(370);
