@@ -181,7 +181,6 @@
                     triggerHook: "onEnter"
                 })
                 .setPin('.scene-2__background', {pushFollowers: false})
-                .addIndicators()
                 .addTo(scrollMagicController);
 
         },

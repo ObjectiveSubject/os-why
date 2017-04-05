@@ -493,7 +493,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 offset: 200,
                 duration: window.innerHeight + 200,
                 triggerHook: "onEnter"
-            }).setPin('.scene-2__background', { pushFollowers: false }).addIndicators().addTo(scrollMagicController);
+            }).setPin('.scene-2__background', { pushFollowers: false }).addTo(scrollMagicController);
         },
 
         /* SCENE 3 ----------------------------------------------------------- */
