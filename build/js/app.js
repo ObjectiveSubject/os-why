@@ -478,8 +478,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             timeline.add(showExplorer).add(showLight);
 
             var showDirectory = new ScrollMagic.Scene({
-                triggerElement: '#the-voting-system',
-                triggerHook: "onEnter"
+                triggerElement: '#overview',
+                triggerHook: "onLeave"
             }).setTween(directoryListItems).addTo(scrollMagicController);
 
             var curtain = new ScrollMagic.Scene({
@@ -498,7 +498,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 triggerElement: '#overview',
                 duration: '200%',
                 triggerHook: "onLeave"
-            }).setPin('.scene-2__background').addTo(scrollMagicController);
+            }).setPin('.scene-2__background', { pushFollowers: false }).addTo(scrollMagicController);
         },
 
         /* SCENE 3 ----------------------------------------------------------- */

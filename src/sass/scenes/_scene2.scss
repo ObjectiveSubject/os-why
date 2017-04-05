@@ -1,9 +1,23 @@
+
+$scene-2-spacer: 12.5rem;
+
 .scene-2 {
     height: 100vh;
-    // min-height: 0;
-    margin-bottom: 100vh;
+    margin-bottom: 50vh;
+    margin-top: calc(100vh - #{$scene-2-spacer});
     .static-app & {
         margin-bottom: 0;   
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(-100vh + #{$scene-2-spacer});
+        left: 0;
+        width: 100%;
+        height: calc(100vh - #{$scene-2-spacer});
+        background-color: $dark-blue;
     }
 }
 
@@ -30,11 +44,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: rem(200);
     background: $dark-blue;
-    .static-app & {
-        height: rem(150);   
-    }
 }
 
 .overflow-container {

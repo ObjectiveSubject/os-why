@@ -156,8 +156,8 @@
                 .add(showLight);
 
             let showDirectory = new ScrollMagic.Scene({
-                    triggerElement: '#the-voting-system',
-                    triggerHook: "onEnter"
+                    triggerElement: '#overview',
+                    triggerHook: "onLeave"
                 })
                 .setTween(directoryListItems)
                 .addTo(scrollMagicController);
@@ -183,7 +183,7 @@
                     duration: '200%',
                     triggerHook: "onLeave"
                 })
-                .setPin('.scene-2__background')
+                .setPin('.scene-2__background', {pushFollowers: false})
                 .addTo(scrollMagicController);
 
         },
