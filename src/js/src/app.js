@@ -156,7 +156,7 @@
                 .add(showLight);
 
             let showDirectory = new ScrollMagic.Scene({
-                    triggerElement: '#scene-3',
+                    triggerElement: '#the-voting-system',
                     triggerHook: "onEnter"
                 })
                 .setTween(directoryListItems)
@@ -179,7 +179,7 @@
                 .addTo(scrollMagicController);
 
              let stickyBg = new ScrollMagic.Scene({
-                    triggerElement: '#scene-2',
+                    triggerElement: '#overview',
                     duration: '200%',
                     triggerHook: "onLeave"
                 })

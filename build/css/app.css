@@ -742,7 +742,7 @@ p {
 .scene-directory li {
   margin: 0.5em 0 0; }
 
-#scene-1 {
+.scene-1 {
   background-color: #0a1e2c;
   color: white; }
 
@@ -771,10 +771,10 @@ p {
   margin-top: 3rem;
   font-size: 1.5rem; }
 
-#scene-2 {
+.scene-2 {
   height: 100vh;
   margin-bottom: 100vh; }
-  .static-app #scene-2 {
+  .static-app .scene-2 {
     margin-bottom: 0; }
 
 .scene-2__background {
@@ -822,7 +822,7 @@ p {
   top: auto;
   bottom: -2px; }
 
-#scene-3 {
+.scene-3 {
   min-height: 100vh;
   overflow: hidden;
   padding-bottom: 10rem;
@@ -843,7 +843,7 @@ p {
   top: 0;
   left: 0; }
 
-#scene-4 {
+.scene-4 {
   padding-bottom: 10rem; }
 
 .scene-4__copy {
@@ -874,7 +874,7 @@ p {
   right: 0;
   transform-origin: 50% bottom; }
 
-#scene-5 {
+.scene-5 {
   padding-bottom: 30vh; }
 
 .scene-5__images {
@@ -888,7 +888,7 @@ p {
   top: 0;
   left: 0; }
 
-#scene-6 {
+.scene-6 {
   padding-bottom: 30vh; }
 
 .scene-6__images {
@@ -914,7 +914,7 @@ p {
   margin-top: 62.5rem;
   float: right; }
 
-#scene-7 {
+.scene-7 {
   padding-bottom: 30vh; }
 
 .scene-7__images {
@@ -933,7 +933,7 @@ p {
 .scene-7__copy {
   margin-top: 56.25rem; }
 
-#scene-8 {
+.scene-8 {
   padding-bottom: 10rem; }
 
 .scene-8__images {
