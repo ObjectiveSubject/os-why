@@ -612,10 +612,12 @@ a {
     opacity: 0.5; }
 
 #app {
-  opacity: 0;
-  transition: opacity 250ms ease-out; }
-  #app.initialized {
-    opacity: 1; }
+  background-color: #0a1e2c; }
+  #app .scene {
+    opacity: 0;
+    transition: opacity 1s ease-out; }
+    .initialized #app .scene {
+      opacity: 1; }
 
 .grid-container {
   position: relative;
@@ -660,7 +662,8 @@ a {
       background-position: 0 -56px; } }
   .site-header .site-title {
     position: absolute;
-    z-index: 1; }
+    z-index: 1;
+    margin-top: 3rem; }
   .scene-9 .site-title {
     margin-left: -0.6875rem; }
 
@@ -709,7 +712,8 @@ p {
 
 .scene {
   position: relative;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background-color: white; }
 
 .scene-copy {
   max-width: 23.125rem;
@@ -788,19 +792,20 @@ p {
   font-size: 1.5rem; }
 
 .scene-2 {
-  margin-bottom: 6.25rem;
+  padding-bottom: 6.25rem;
   margin-top: calc(50vh - 12.5rem); }
   @media all and (min-width: 1000px) {
     .scene-2 {
-      margin-bottom: 50vh;
+      padding-bottom: 50vh;
       height: 100vh;
       margin-top: calc(100vh - 12.5rem); }
       .static-app .scene-2 {
-        margin-bottom: 0; } }
+        padding-bottom: 0; } }
   .scene-2:before {
     content: "";
     display: block;
     position: absolute;
+    z-index: 10;
     top: calc(-50vh + 12.5rem);
     left: 0;
     width: 100%;
@@ -825,8 +830,7 @@ p {
       padding-top: 0;
       position: absolute;
       width: 100%;
-      top: 50%;
-      transform: translate3d(0, -50%, 0); } }
+      top: -50%; } }
 
 .scene-2__copy {
   margin-top: 0; }

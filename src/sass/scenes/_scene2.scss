@@ -2,14 +2,14 @@
 $scene-2-spacer: 12.5rem;
 
 .scene-2 {
-    margin-bottom: rem(100);
+    padding-bottom: rem(100);
     margin-top: calc(50vh - #{$scene-2-spacer});
     @include media($lg) {
-        margin-bottom: 50vh;
+        padding-bottom: 50vh;
         height: 100vh;
         margin-top: calc(100vh - #{$scene-2-spacer});
         .static-app & {
-            margin-bottom: 0;   
+            padding-bottom: 0;   
         }
     }
 
@@ -17,6 +17,7 @@ $scene-2-spacer: 12.5rem;
         content: "";
         display: block;
         position: absolute;
+        z-index: 10;
         top: calc(-50vh + #{$scene-2-spacer});
         left: 0;
         width: 100%;
@@ -42,8 +43,9 @@ $scene-2-spacer: 12.5rem;
         padding-top: 0;
         position: absolute;
         width: 100%;
-        top: 50%;
-        transform: translate3d(0,-50%,0);
+        // top: 50%;
+        top: -50%;
+        // transform: translate3d(0,-50%,0);
     }
 }
 .scene-2__copy {

@@ -351,13 +351,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 (function () {
 
-    var app = document.getElementById('app'),
-        appClass = app.className;
+    var body = document.querySelector('body'),
+        bodyClass = body.className;
 
     var h = OSHelpers;
     // abort if viewport isn't wide enough or certain features aren't supported
     if (h.getMediaSize() !== "large" || !document.querySelector('body').dataset) {
-        app.className = appClass.split("loading").join(" initialized ");
+        body.className = bodyClass.split("loading").join(" initialized ");
         return;
     }
 
@@ -437,10 +437,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         headerScene: function headerScene() {
 
-            var pulseTitle = TweenMax.fromTo('.site-header .site-title', 1, { opacity: 0.3, transform: 'translateY(40vh)' }, { opacity: 1, transform: 'translateY(40vh)', yoyo: true, repeat: 2, onComplete: function onComplete() {
+            var pulseTitle = TweenMax.fromTo('.site-header .site-title', 1, { opacity: '0', transform: 'translateY(40vh)' }, { opacity: '1', transform: 'translateY(40vh)', delay: 1, ease: 'Quad.easeInOut', onComplete: function onComplete() {
                     TweenMax.fromTo('.site-header .site-title', 1, { transform: 'translateY(40vh)' }, { transform: 'translateY(0)', ease: 'Quad.easeInOut' });
                 } }),
-                slideInCopy = TweenMax.fromTo('.scene-1__copy', 1, { transform: 'translateY(100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, delay: 3, ease: 'Quad.easeInOut' });
+                slideInCopy = TweenMax.fromTo('.scene-1__copy', 1, { transform: 'translateY(100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1, delay: 2, ease: 'Quad.easeInOut' });
         },
 
         /* SCENE 1 ----------------------------------------------------------- */
@@ -490,8 +490,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             var stickyBg = new ScrollMagic.Scene({
                 triggerElement: '#overview',
-                duration: '200%',
-                triggerHook: "onLeave"
+                offset: 200,
+                duration: window.innerHeight + 200,
+                triggerHook: "onEnter"
             }).setPin('.scene-2__background', { pushFollowers: false }).addTo(scrollMagicController);
         },
 
@@ -611,5 +612,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (typeof scenes[fn] === "function") scenes[fn]();
     });
 
-    app.className = appClass.split('loading static-app').join(' initialized ');
+    var events = {
+        init: function init() {
+            var smoothScrollLinks = document.querySelectorAll('.js-smooth-scroll');
+            for (var i = 0; smoothScrollLinks.length > i; i++) {
+                var link = smoothScrollLinks[i];
+
+                console.log(link);
+
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log(e.target);
+                    var elId = e.target.dataset.href;
+                    document.querySelector(elId).scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        }
+    };
+
+    events.init();
+
+    body.className = bodyClass.split('loading static-app').join(' initialized ');
 })();

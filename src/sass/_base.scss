@@ -31,10 +31,13 @@ a {
 }
 
 #app {
-    opacity: 0;
-    transition: opacity $timing $easing;
-    &.initialized {
-        opacity: 1;
+    background-color: $dark-blue;
+    .scene {
+        opacity: 0;
+        transition: opacity 1s $easing;
+        .initialized & {
+            opacity: 1;
+        }
     }
 }
 
@@ -83,6 +86,7 @@ a {
     .site-header & {
         position: absolute;
         z-index: 1;
+        margin-top: 3rem;
     }
 
     .scene-9 & {
