@@ -9,10 +9,10 @@
     
     const h = OSHelpers;
     // abort if viewport isn't wide enough or certain features aren't supported
-    // if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
+    if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
         app.className = appClass.split("loading").join(" initialized ");
         return;
-    // }
+    }
 
     const color = {
         red: '#e73d50',
