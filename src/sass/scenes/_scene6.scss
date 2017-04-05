@@ -1,33 +1,52 @@
 .scene-6 {
-    padding-bottom: 30vh;
+    padding-bottom: 50vh;
 }
 
 .scene-6__images {
-    position: absolute;
+    position: relative;
     z-index: 0;
-    top: 5rem;
-    left: 0;
+    margin-top: rem(200);
     width: 100%;
-
-    .woman {
+    @include media($lg){
         position: absolute;
-        right: 40%;
-        margin-right: -300px;
-        .static-app & {
-            right: 45%;       
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+}
+
+.scene-6__image {
+    max-width: 100%;
+    height: auto;
+    top: 0;
+    right: auto;
+    left: auto;
+
+    &.woman {
+        @include media($lg) {
+            position: absolute;
+            right: 40%;
+            margin-right: -300px;
+            .static-app & {
+                right: 45%;       
+            }
         }
     }
-    .man {
+    &.man {
         position:absolute;
-        left: 40%;
-        margin-left: -300px;
-        .static-app & {
-            left: 50%;
+        @include media($lg) {
+            left: 40%;
+            margin-left: -300px;
+            .static-app & {
+                left: 50%;
+            }   
         }
     }
 }
 
 .scene-6__copy {
-    margin-top: rem(1000);
-    float: right;
+    margin: 0;
+    @include media($lg) {
+        margin-top: rem(800);
+    }
 }

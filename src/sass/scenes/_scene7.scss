@@ -1,16 +1,23 @@
 .scene-7 {
-    padding-bottom: 30vh;
+    padding-bottom: 50vh;
 }
 
 .scene-7__images {
-    position: absolute;
+    position: relative;
+    margin-top: rem(150);
     z-index: 0;
-    top: 5rem;
-    left: 50%;
-    margin: 0 0 0 -300px;
+    width: 100%;
+    @include media($lg) {
+        position: absolute;
+        margin: 0 0 0 -300px;
+        top: 5rem;
+        left: 50%;
+    }
 }
 
 .scene-7__image {
+    max-width: 100%;
+    height: auto;
     &.mark {
         position: absolute;
         top: 0;
@@ -20,5 +27,8 @@
 }
 
 .scene-7__copy {
-    margin-top: rem(900);
+    margin-top: 0;
+    @include media($lg) {
+        margin-top: rem(900);
+    }
 }

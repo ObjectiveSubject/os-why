@@ -31,6 +31,7 @@
 
                 let list = sceneLists[i],
                     listItems = list.querySelectorAll('.reveal'),
+                    scene = document.querySelector( '.' + list.className.split('__list')[0] ),
                     revealList = TweenMax.staggerFromTo( listItems, 
                                     0.5, 
                                     { opacity: 0, transform: "translateY(50px)"}, 
@@ -40,18 +41,15 @@
                                  );
 
                 let duration = 870;
-                if ( list.className.indexOf('scene-7') > -1 ) {
-                    duration = 760;
-                } else if ( list.className.indexOf('scene-4') > -1 ) {
-                    duration = 660;
-                }
+                if ( list.dataset && list.dataset.duration ) {
+                    duration = parseInt(list.dataset.duration);
+                } 
 
                 let sceneList = new ScrollMagic.Scene({
                         triggerElement: list,
                         offset: duration + 40
                     })
                     .setTween(revealList)
-                    .addIndicators({name:'reveal'})
                     .addTo(scrollMagicController);
                 
                 let stickyList = new ScrollMagic.Scene({
@@ -60,7 +58,6 @@
                         duration: duration,
                     })
                     .setPin(list)
-                    // .addIndicators({name:'fix'})
                     .addTo(scrollMagicController);
                     
             }
@@ -211,22 +208,24 @@
 
         scene4: () => {
 
-            let expandImage = TweenMax.fromTo( '.scene-4__image.small-man', 1, { transform: 'scale(0.3)' }, { transform: 'scale(1)', transformOrigin: '50% bottom', ease: Linear.easeNone } ),
-                shrinkImage = TweenMax.fromTo( '.scene-4__image.big-man', 1, { transform: 'scale(1)' }, { transform: 'scale(0.3)', transformOrigin: '50% bottom', ease: Linear.easeNone } ),
-                scene = new ScrollMagic.Scene({
-                        triggerElement: '.scene-4__images',
-                        offset: 250,
-                        duration: (window.outerHeight / 2),
-                    })
-                    .setTween(expandImage)
-                    .addTo(scrollMagicController),
-                scene2 = new ScrollMagic.Scene({
-                        triggerElement: '.scene-4__images',
-                        offset: 250,
-                        duration: (window.outerHeight / 2),
-                    })
-                    .setTween(shrinkImage)
-                    .addTo(scrollMagicController);
+            let expandImage = TweenMax.fromTo( '.scene-4__image.small-man', 1, { transform: 'scale(0.5)' }, { transform: 'scale(1)', transformOrigin: '480px 680px', ease: Linear.easeNone } ),
+                shrinkImage = TweenMax.fromTo( '.scene-4__image.big-man', 1, { transform: 'scale(1)' }, { transform: 'scale(0.5)', transformOrigin: '80px 785px', ease: Linear.easeNone } );
+                
+            let scene = new ScrollMagic.Scene({
+                    triggerElement: '.scene-4__images',
+                    offset: 150,
+                    duration: (window.outerHeight / 2),
+                })
+                .setTween(expandImage)
+                .addTo(scrollMagicController);
+
+            let scene2 = new ScrollMagic.Scene({
+                    triggerElement: '.scene-4__images',
+                    offset: 150,
+                    duration: (window.outerHeight / 2),
+                })
+                .setTween(shrinkImage)
+                .addTo(scrollMagicController);
                 
 
         },

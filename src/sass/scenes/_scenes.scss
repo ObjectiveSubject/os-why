@@ -12,7 +12,9 @@
     @extend .clearfix;
     max-width: rem(370);
     margin-top: rem(1000);
-    float: right;
+    @include media($lg) {
+        float: right;
+    }
 }
 
 .scene-rule {
@@ -38,10 +40,15 @@
     z-index: 1;
     top: 0;
     left: $container-padding;
-    width: 100%;
+    width: auto;
     max-width: rem(370);
-    margin-top: rem(150);
+    margin-top: 2rem;
     text-shadow: 1px 1px white;
+    @include media($lg) {
+        width: 100%;
+        margin-top: rem(150);
+    }
+
     li {
         @extend .h1;
         margin: 0.5em 0 0;
@@ -51,7 +58,9 @@
 .scene-directory {
     .scene-2 & {
         max-width: rem(370);
-        float: left;
+        @include media($lg) {
+            float: left;
+        }
     }
     li {
         @extend .h1;

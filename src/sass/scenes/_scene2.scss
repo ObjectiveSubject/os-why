@@ -2,41 +2,53 @@
 $scene-2-spacer: 12.5rem;
 
 .scene-2 {
-    height: 100vh;
-    margin-bottom: 50vh;
-    margin-top: calc(100vh - #{$scene-2-spacer});
-    .static-app & {
-        margin-bottom: 0;   
+    margin-bottom: rem(100);
+    margin-top: calc(50vh - #{$scene-2-spacer});
+    @include media($lg) {
+        margin-bottom: 50vh;
+        height: 100vh;
+        margin-top: calc(100vh - #{$scene-2-spacer});
+        .static-app & {
+            margin-bottom: 0;   
+        }
     }
 
     &:before {
         content: "";
         display: block;
         position: absolute;
-        top: calc(-100vh + #{$scene-2-spacer});
+        top: calc(-50vh + #{$scene-2-spacer});
         left: 0;
         width: 100%;
-        height: calc(100vh - #{$scene-2-spacer});
+        height: calc(50vh - #{$scene-2-spacer});
         background-color: $dark-blue;
+        @include media($lg) {
+            top: calc(-100vh + #{$scene-2-spacer});
+            height: calc(100vh - #{$scene-2-spacer});
+        }
     }
 }
 
 .scene-2__background {
-    height: 100%;
     width: 100%;
     position: relative;
+    @include media($lg) {
+        height: 100%;
     }
-
-    .scene-2__content {
+}
+.scene-2__content {
+    padding-top: rem(150);
+    @include media($lg) {
+        padding-top: 0;
         position: absolute;
         width: 100%;
         top: 50%;
         transform: translate3d(0,-50%,0);
     }
-
-    .scene-2__copy {
-        margin-top: 0;
-    }
+}
+.scene-2__copy {
+    margin-top: 0;
+}
 
 
 .scene-2__foreground {
@@ -44,8 +56,11 @@ $scene-2-spacer: 12.5rem;
     top: 0;
     left: 0;
     width: 100%;
-    height: rem(200);
+    height: rem(80);
     background: $dark-blue;
+    @include media($lg) {
+        height: rem(200);
+    }
 }
 
 .overflow-container {
@@ -60,6 +75,8 @@ $scene-2-spacer: 12.5rem;
 }
 .scene-2__image {
     margin-bottom: -44px;
+    max-width: 100%;
+    height: auto;
     &.light, &.man {
         position: absolute;
         bottom: 0;

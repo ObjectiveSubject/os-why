@@ -1,15 +1,35 @@
 .scene-5 {
-    padding-bottom: 30vh;
+    padding-bottom: 50vh;
 }
 
 .scene-5__images {
-    position: absolute;
+    position: relative;
     z-index: 0;
-    top: 5rem;
-    left: 35%;
+    width: 100%;
+    margin-top: rem(150);
+    @include media($lg) {
+        position: absolute;
+        left: 35%;
+        top: 5rem;
+        margin: 0;
+    }
 }
 .scene-5__image {
     position: absolute;
     top: 0;
     left: 0;
+    max-width: 100%;
+    height: auto;
+
+    &.light {
+        @include media($lg - 1, max) {
+            position: relative;
+        }
+    }
+}
+
+.scene-5__copy {
+    @include media($lg - 1, max) {
+        margin-top: 0;
+    }
 }

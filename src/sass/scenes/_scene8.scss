@@ -1,20 +1,33 @@
 .scene-8 {
-    padding-bottom: 10rem;
+    padding-bottom: 50vh;
     // margin-bottom: 100vh;
 }
 
 .scene-8__images {
-    position: absolute;
+    position: relative;
+    margin-top: rem(150);
     z-index: 0;
-    top: 5rem;
-    left: 50%;
-    margin: 0 0 0 -300px;
+    width: 100%;
+    @include media($lg) {
+        position: absolute;
+        margin: 0 0 0 -300px;
+        top: 5rem;
+        left: 50%;
+    }
 }
 
 .scene-8__image {
+    max-width: 100%;
+    height: auto;
     &:not(.tree) {
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+.scene-8__copy {
+    @include media($lg - 1, max) {
+        margin-top: 0;
     }
 }

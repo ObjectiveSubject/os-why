@@ -1,19 +1,26 @@
 .scene-3 {
     min-height: 100vh;
     overflow: hidden;
-    padding-bottom: 10rem;
+    padding-bottom: 50vh;
     background-color: white;
 }
 
 .scene-3__images {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    position: relative;
+    margin-top: rem(150);
     z-index: 0;
-    margin-left: -300px;
+    @include media($lg) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -300px;
+        margin-top: 0;
+    }
 }
 
 .scene-3__image {
+    max-width: 100%;
+    height: auto;
     &.lines {
         position: relative;
         z-index: 0;
@@ -22,5 +29,11 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+.scene-3__copy {
+    @include media($lg - 1, max) {
+        margin-top: 0;
     }
 }
