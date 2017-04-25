@@ -625,6 +625,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     document.querySelector(elId).scrollIntoView({ behavior: 'smooth' });
                 });
             }
+
+            var delayedFields = document.querySelectorAll('.js-delayed-field'),
+                triggerFields = document.querySelectorAll('.js-trigger-field'),
+                delayedFieldsVisible = false;
+
+            console.log(delayedFields);
+
+            for (var i = 0; triggerFields.length > i; i++) {
+                var field = triggerFields[i];
+                field.addEventListener('focus', function (e) {
+                    console.log(e);
+                    if (!delayedFieldsVisible) {
+                        for (var d = 0; delayedFields.length > d; d++) {
+                            delayedFields[d].className = delayedFields[d].className += ' visible';
+                        }
+                    }
+                    delayedFieldsVisible = true;
+                });
+            }
         }
     };
 

@@ -32,9 +32,31 @@
     text-shadow: none;
 }
 
-.mt-nudge { margin-top: 0.75rem; }
+.color-red {
+    color: $red;
+}
+
+.mt-nudge { margin-top: 0.75rem !important; }
 @for $i from 0 through 6 {
     .mt-#{$i} {
-        margin-top: $i * 1.5rem;
+        margin-top: $i * 1.5rem !important;
+    }
+    .pt-#{$i} {
+        padding-top: $i * 1.5rem !important;
+    }
+}
+
+.float-right { 
+    float: right;
+}
+
+.w-50 {
+    @include media($md) {
+        width: 47.5%;
+        float: left;
+        margin-right: 5%;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
     }
 }

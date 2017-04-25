@@ -2,11 +2,22 @@
     background-color: $dark-blue;
     color: white;
     padding-bottom: 5rem;
+
+    .os-logo {
+        margin-top: 4rem;
+        @include media($md) {
+            float: right;
+            margin-top: 11.5rem;
+        }
+    }
 }
 
 .scene-9__copy {
-    float: left;
     margin-top: 2rem;
+    max-width: rem(390);
+    @include media($md) {
+        float: left;
+    }
     @include media($lg) {
         margin-top: 10rem;
     }
