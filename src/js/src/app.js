@@ -352,12 +352,9 @@
                 triggerFields = document.querySelectorAll('.js-trigger-field'),
                 delayedFieldsVisible = false;
 
-            console.log(delayedFields);
-
             for ( var i=0; triggerFields.length > i; i++ ) {
                 let field = triggerFields[i];
                 field.addEventListener('focus', (e) => {
-                    console.log(e);
                     if ( ! delayedFieldsVisible ) {
                         for ( var d=0; delayedFields.length > d; d++ ) {
                             delayedFields[d].className = delayedFields[d].className += ' visible';
