@@ -355,12 +355,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         bodyClass = body.className;
 
     var h = OSHelpers;
-    // abort if viewport isn't wide enough or certain features aren't supported
-    if (h.getMediaSize() !== "large" || !document.querySelector('body').dataset) {
-        body.className = bodyClass.split("loading").join(" initialized ");
-        return;
-    }
-
     var color = {
         red: '#e73d50',
         darkBlue: '#0a1e2c'
@@ -606,12 +600,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     }; // scenes
 
-    // loop through each key in {scenes}
-    Object.keys(scenes).forEach(function (fn) {
-        // check to see if it's a function
-        if (typeof scenes[fn] === "function") scenes[fn]();
-    });
-
     var events = {
         init: function init() {
 
@@ -645,6 +633,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     events.init();
+
+    // abort if viewport isn't wide enough or certain features aren't supported
+    if (h.getMediaSize() !== "large" || !document.querySelector('body').dataset) {
+        body.className = bodyClass.split("loading").join(" initialized ");
+        return;
+    }
+
+    // loop through each key in {scenes}
+    Object.keys(scenes).forEach(function (fn) {
+        // check to see if it's a function
+        if (typeof scenes[fn] === "function") scenes[fn]();
+    });
 
     body.className = bodyClass.split('loading static-app').join(' initialized ');
 })();

@@ -8,12 +8,6 @@
         bodyClass = body.className;
     
     const h = OSHelpers;
-    // abort if viewport isn't wide enough or certain features aren't supported
-    if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
-        body.className = bodyClass.split("loading").join(" initialized ");
-        return;
-    }
-
     const color = {
         red: '#e73d50',
         darkBlue: '#0a1e2c'
@@ -328,12 +322,6 @@
 
     } // scenes
 
-    // loop through each key in {scenes}
-    Object.keys(scenes).forEach( (fn) => {
-        // check to see if it's a function
-        if ( typeof scenes[fn] === "function" ) scenes[fn]();
-    } );
-
     const events = {
         init: () => {
 
@@ -368,6 +356,18 @@
     };
 
     events.init();
+
+    // abort if viewport isn't wide enough or certain features aren't supported
+    if ( h.getMediaSize() !== "large" || ! document.querySelector('body').dataset ) {
+        body.className = bodyClass.split("loading").join(" initialized ");
+        return;
+    }
+
+    // loop through each key in {scenes}
+    Object.keys(scenes).forEach( (fn) => {
+        // check to see if it's a function
+        if ( typeof scenes[fn] === "function" ) scenes[fn]();
+    } );
     
     body.className = bodyClass.split('loading static-app').join(' initialized ');
 
